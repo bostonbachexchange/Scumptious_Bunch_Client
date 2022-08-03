@@ -26,6 +26,7 @@ const SignUp = (props) => {
         const credentials = {name, email, password, passwordConfirmation}
 
 		signUp(credentials)
+            .then(console.log(credentials))
 			.then(() => signIn(credentials))
 			.then((res) => setUser(res.data.user))
 			.then(() =>
