@@ -44,7 +44,7 @@ Sophia - Front End SEM
 * As a freelancer user, I want to be able to list turnaround times for services that it is applicable for.
 
 ## ERD
-<img src="./Project3Client/images/ERD.png" alt="ERD image" />
+<img src="./Project3Client/Images/ERD.png" alt="ERD image" />
  
 ## Wireframes
 
