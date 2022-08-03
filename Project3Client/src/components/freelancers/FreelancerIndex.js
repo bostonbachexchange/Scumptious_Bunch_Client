@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 import LoadingScreen from '../shared/LoadingScreen'
-import { getAllPets } from '../../api/pets'
+import { getAllFreelancers } from '../../api/freelancers'
 import messages from '../shared/AutoDismissAlert/messages'
 
 // PetsIndex should make a request to the api
@@ -20,21 +20,21 @@ const cardContainerStyle = {
     justifyContent: 'center'
 }
 
-const PetsIndex = (props) => {
-    const [pets, setPets] = useState(null)
+const FreelancerIndex = (props) => {
+    const [freelancers, setFreelancers] = useState(null)
     const [error, setError] = useState(false)
 
     const { msgAlert } = props
 
-    console.log('Props in PetsIndex', props)
+    console.log('Props in FreelancerIndex', props)
 
     useEffect(() => {
         console.log(props)
-        getAllPets()
-            .then(res => setPets(res.data.pets))
+        getAllFreelancers()
+            .then(res => setFreelancers(res.data.freelancers))
             .catch(err => {
                 msgAlert({
-                    heading: 'Error Getting Pets',
+                    heading: 'Error Getting Freelancers',
                     message: messages.getPetsFailure,
                     variant: 'danger',
                 })
@@ -47,18 +47,18 @@ const PetsIndex = (props) => {
     }
 
     // If pets haven't been loaded yet, show a loading message
-    if (!pets) {
+    if (!freelancers) {
         return <LoadingScreen />
-    } else if (pets.length === 0) {
-        return <p>No pets yet. Better add some.</p>
+    } else if (freelancers.length === 0) {
+        return <p>No freelancers yet. New people will sign up soon.</p>
     }
 
-    const petCards = pets.map(pet => (
+    const freelancerCards = freelancers.map(freelancer => (
         <Card style={{ width: '30%', margin: 5}} key={ pet.id }>
-            <Card.Header>{ pet.fullTitle }</Card.Header>
+            <Card.Header>{ freelancer.fullTitle }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={`/pets/${pet.id}`}>View { pet.name }</Link>
+                    <Link to={`/freelancers/${freelancer.id}`}>View { freelancer.name }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
@@ -66,7 +66,7 @@ const PetsIndex = (props) => {
 
     return (
         <div style={ cardContainerStyle }>
-            { petCards }
+            { freelancerCards }
         </div>
     )
 }
