@@ -86,9 +86,3 @@ View Service - Show
 
 Edit Service
 <img src="./Project3Client/Images/Update Service.png" width="200px" alt="Edit Service" />
-
- 
-
-## API or Seed Data
-* We will be using Seed Data to populate the Users and the Services
-* We will be using 10 sample Users w/o Freelancer access, 5 sample Users w/Freelancer access, and 10 services
