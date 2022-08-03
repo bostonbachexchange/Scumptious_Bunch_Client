@@ -9,8 +9,8 @@ import LoadingScreen from '../shared/LoadingScreen'
 import { getAllFreelancers } from '../../api/freelancers'
 import messages from '../shared/AutoDismissAlert/messages'
 
-// PetsIndex should make a request to the api
-// To get all pets
+// FreelancerIndex should make a request to the api
+// To get all freelancers
 // Then display them when it gets them
 
 // style for our card container
@@ -35,7 +35,7 @@ const FreelancerIndex = (props) => {
             .catch(err => {
                 msgAlert({
                     heading: 'Error Getting Freelancers',
-                    message: messages.getPetsFailure,
+                    message: messages.getFreelancersFailure,
                     variant: 'danger',
                 })
                 setError(true)
@@ -46,7 +46,7 @@ const FreelancerIndex = (props) => {
         return <p>Error!</p>
     }
 
-    // If pets haven't been loaded yet, show a loading message
+    // If freelancers haven't been loaded yet, show a loading message
     if (!freelancers) {
         return <LoadingScreen />
     } else if (freelancers.length === 0) {
@@ -54,7 +54,7 @@ const FreelancerIndex = (props) => {
     }
 
     const freelancerCards = freelancers.map(freelancer => (
-        <Card style={{ width: '30%', margin: 5}} key={ pet.id }>
+        <Card style={{ width: '30%', margin: 5}} key={ freelancer.id }>
             <Card.Header>{ freelancer.fullTitle }</Card.Header>
             <Card.Body>
                 <Card.Text>
@@ -71,4 +71,4 @@ const FreelancerIndex = (props) => {
     )
 }
 
-export default PetsIndex
+export default FreelancerIndex
