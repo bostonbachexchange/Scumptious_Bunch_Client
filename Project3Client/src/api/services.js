@@ -15,11 +15,11 @@ export const getOneService = (id) => {
 
 export const createService = (user, newService) => {
     // console.log('createPet in API was hit')
-    // in our createPet form, we're building an object
-    // when we pass that object into the api createPet function, it's going to look like the pets in our database
-    // we're going to refer to this as newPet
+    // in our createService form, we're building an object
+    // when we pass that object into the api createService function, it's going to look like the services in our database
+    // we're going to refer to this as newService
     // console.log('this is user:', user)
-    // console.log('this is newPet', newPet)
+    // console.log('this is newPet', newService)
 	return axios({
 		url: apiUrl + '/services',
 		method: 'POST',

@@ -28,14 +28,15 @@ const ShowService = (props) => {
     // TODO: future promise for the edit service modal!
     // const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
-    const [updated, setUpdated] = useState(false)
-
+    const [updated, setUpdated] = useState(false);
+    let serviceToShow;
     // destructuring to get the id value from our route params
     const { id } = useParams();
     const navigate = useNavigate()
     // useNav returns a function
     // we can call that function to redirect the user wherever we want to
-
+    console.log('here are props', props)
+    console.log('here is the id from useParams', id)
     const { user, msgAlert } = props;
     console.log('the service in props', service)
     console.log('user in props', user)
@@ -51,11 +52,12 @@ const ShowService = (props) => {
                 // navigate back to the home page if there's an error fetching
                 navigate('/');
             })
-    }, [updated])
+    }, [])
+    // TODO: add updated to dependency array when we have edit modal
     // here we'll declare a function that runs which will remove the pet
     // this function's promise chain should send a message, and then go somewhere
     const removeTheService = () => {
-        removeService(user, service.id)
+        removeService(user, service._id)
             // on success send a success message
             .then(() => {
                 msgAlert({

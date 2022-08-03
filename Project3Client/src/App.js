@@ -12,9 +12,9 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-// TODO: future promising these two
 import ShowAllServices from './components/services/ShowAllServices.js'
 import ShowService from './components/services/ShowService.js'
+// TODO: future promising this one
 import CreateService from './components/services/CreateService'
 
 const App = () => {

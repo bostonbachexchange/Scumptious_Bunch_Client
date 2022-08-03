@@ -52,15 +52,16 @@ const ShowAllServices = (props) => {
     if (error) {
         return <p>Error!</p>
     }
+    console.log('here are our services!', services)
 
     const serviceCards = services.map(service => (
-        <Card style={{ width: '30%', margin: 5}} key={ service.id }>
+        <Card style={{ width: '30%', margin: 5}} key={ service._id }>
             <Card.Header>{ service.name}</Card.Header>
             <Card.Body>
                 <Card.Text>
                     <small>{ service.type }</small><br />
                     <small>${ service.rate }</small><br />
-                    <Link to={`/services/${service.id}`}>View { service.name }</Link>
+                    <Link to={`/services/${service._id}`}>View { service.name }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
