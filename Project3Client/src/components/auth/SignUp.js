@@ -9,6 +9,9 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignUp = (props) => {
+    const { msgAlert } = props
+    const [name, setName] = useState('')
+    const [isFreelancer, setIsFreelancer] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -51,6 +54,25 @@ const SignUp = (props) => {
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
+                <Form.Group controlId='name'>
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control
+                            required
+                            type='text'
+                            name='name'
+                            value={name}
+                            placeholder='Enter username'
+                            onChange={e => setName(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId='isFreelancer'>
+                        <Form.Check
+                            label="Are You a Freelancer?" 
+                            id="isFreelancer" 
+                            name="isFreelancer"
+                            onChange={e => setIsFreelancer(e.target.value) }
+                        />
+                    </Form.Group>
                     <Form.Group controlId='email'>
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
