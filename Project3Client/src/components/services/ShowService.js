@@ -1,10 +1,131 @@
 import React from 'react';
+import { 
+    Container,
+    Card,
+    Button 
+} from 'react-bootstrap';
+import LoadingScreen from '../shared/LoadingScreen';
+// import service API functions
+import { updateService, getOneService, removeService } from '../../api/services';
+// this will allow us to set our params
+import { 
+    useParams,
+    useNavigate 
+} from 'react-router-dom';
+// useNav will allow us to navigate to a specific page
+// for error messages
+import messages from '../shared/AutoDismissAlert/messages'
+import { 
+    useState, 
+    useEffect 
+} from 'react'
+// hiding for later!
+// import EditServiceModal from './EditPetModal';
 
-const ShowService = () => {
+
+const ShowService = (props) => {
+    const [service, setService] = useState(null)
+    // TODO: future promise for the edit service modal!
+    // const [editModalShow, setEditModalShow] = useState(false) 
+    // to let us know when to rerender!
+    const [updated, setUpdated] = useState(false)
+
+    // destructuring to get the id value from our route params
+    const { id } = useParams();
+    const navigate = useNavigate()
+    // useNav returns a function
+    // we can call that function to redirect the user wherever we want to
+
+    const { user, msgAlert } = props;
+    console.log('the service in props', service)
+    console.log('user in props', user)
+    useEffect(() => {
+        getOneService(id)
+            .then(res => setService(res.data.service))
+            .catch(err => {
+                msgAlert({
+                    heading: 'Error getting service',
+                    body: messages.getServicesFailure,
+                    variant: 'danger',
+                })
+                // navigate back to the home page if there's an error fetching
+                navigate('/');
+            })
+    }, [updated])
+    // here we'll declare a function that runs which will remove the pet
+    // this function's promise chain should send a message, and then go somewhere
+    const removeTheService = () => {
+        removeService(user, service.id)
+            // on success send a success message
+            .then(() => {
+                msgAlert({
+                    heading: 'Success',
+                    message: messages.removeServiceSuccess,
+                    variant: 'success'
+                })
+            })
+            // then navigate to index
+            .then(() => {navigate('/')})
+            // on failure send a failure message
+            .catch(err => {                   
+                msgAlert({
+                    heading: 'Error removing service',
+                    message: messages.removeServiceFailure,
+                    variant: 'danger'
+                })
+            })
+    }
+    // If service hasn't been loaded yet, show a loading message
+    if (!service) {
+        return <LoadingScreen />
+    }
+    
     return (
-        <div>
-            
-        </div>
+        <>
+            <Container className='fluid'>
+                <Card>
+                    <Card.Header>{ service.name }</Card.Header>
+                    <Card.Body>
+                        <Card.Text>
+                            <div><small>Type: { service.type }</small></div>
+                            <div><small>Rate: { service.rate }</small></div>
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                        {
+                            service.owner && user && service.owner._id === user._id ? 
+                                <>
+                                    {/* <Button 
+                                        onClick={() => setEditModalShow(true)} 
+                                        className="m-2" 
+                                        variant="warning"
+                                    >
+                                        Edit Service
+                                    </Button>  */}
+                                    <Button 
+                                        onClick={() => removeTheService()} 
+                                        className="m-2" 
+                                        variant="danger"
+                                    >
+                                        Delete this Service
+                                    </Button> 
+                                </>
+                                :
+                                null
+                        }
+                    </Card.Footer>
+                </Card>
+            </Container>
+            {/* <EditPetModal 
+                user = {user}
+                pet = {pet}
+                show = {editModalShow}
+                updatePet = {updatePet}
+                msgAlert = {msgAlert}
+                triggerRefresh  = {() => setUpdated(prev => !prev)}
+                handleClose = {() => setEditModalShow((false))}
+            /> */}
+        </>
     );
 }
 
