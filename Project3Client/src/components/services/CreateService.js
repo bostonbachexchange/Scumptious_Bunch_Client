@@ -8,10 +8,6 @@ import messages from '../shared/AutoDismissAlert/messages'
 const CreateService = (props) => {
     const navigate = useNavigate()
     const { user, msgAlert } = props
-    console.log('here is the user', user)
-    console.log('here is the user token', user.token)
-    // in unit 2, we assigned the user through the session
-    // in this unit, we assign the user through the Token!
     // console.log('these are the props in CreateService \n', props)
     const [service, setService] = useState({
         name: '',
@@ -50,7 +46,12 @@ const CreateService = (props) => {
         console.log('handle submit running')
         createService(user, service)
         // if successful, navigate to the show page for the new pet
-            .then((res) => { navigate(`/services/${res.data.service.id}`)})
+            .then((res) => { 
+                console.log(res)
+                navigate(`/services/`)
+                // TODO: GET TO GO TO SHOW PAGE
+               // navigate(`/services/${res.data.service.id}`)
+            })
         // send a success message to the user
             .then(() =>
                 msgAlert({
