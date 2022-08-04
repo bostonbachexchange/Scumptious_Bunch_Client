@@ -18,7 +18,7 @@ const EditServiceModal = (props) => {
     console.log('service in edit modal', service)
     const handleChange = (e) => {
         // we got this same function from create!
-        setPet(prevService => {
+        setService(prevService => {
             let updatedValue = e.target.value;
             const updatedName = e.target.name;
             if (e.target.type === 'number') {

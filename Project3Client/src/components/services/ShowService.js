@@ -19,14 +19,12 @@ import {
     useState, 
     useEffect 
 } from 'react'
-// hiding for later!
-// import EditServiceModal from './EditPetModal';
+import EditServiceModal from './EditServiceModal';
 
 
 const ShowService = (props) => {
     const [service, setService] = useState(null)
-    // TODO: future promise for the edit service modal!
-    // const [editModalShow, setEditModalShow] = useState(false) 
+    const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
     const [updated, setUpdated] = useState(false);
     let serviceToShow;
@@ -52,7 +50,7 @@ const ShowService = (props) => {
                 // navigate back to the home page if there's an error fetching
                 navigate('/');
             })
-    }, [])
+    }, [updated])
     // TODO: add updated to dependency array when we have edit modal
     // here we'll declare a function that runs which will remove the pet
     // this function's promise chain should send a message, and then go somewhere
@@ -94,16 +92,16 @@ const ShowService = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {
-                            service.owner && user && service.owner._id === user._id ? 
+                        {/* {
+                            service.owner && user && service.owner._id === user._id ?  */}
                                 <>
-                                    {/* <Button 
+                                    <Button 
                                         onClick={() => setEditModalShow(true)} 
                                         className="m-2" 
                                         variant="warning"
                                     >
                                         Edit Service
-                                    </Button>  */}
+                                    </Button> 
                                     <Button 
                                         onClick={() => removeTheService()} 
                                         className="m-2" 
@@ -112,21 +110,21 @@ const ShowService = (props) => {
                                         Delete this Service
                                     </Button> 
                                 </>
-                                :
+                                {/* :
                                 null
-                        }
+                        } */}
                     </Card.Footer>
                 </Card>
             </Container>
-            {/* <EditPetModal 
+            <EditServiceModal 
                 user = {user}
-                pet = {pet}
+                service = {service}
                 show = {editModalShow}
-                updatePet = {updatePet}
+                updateService = {updateService}
                 msgAlert = {msgAlert}
                 triggerRefresh  = {() => setUpdated(prev => !prev)}
                 handleClose = {() => setEditModalShow((false))}
-            /> */}
+            />
         </>
     );
 }
