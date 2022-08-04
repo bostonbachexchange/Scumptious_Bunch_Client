@@ -79,7 +79,8 @@ const ShowService = (props) => {
     if (!service) {
         return <LoadingScreen />
     }
-    
+    console.log('here is the service owner', service.owner)
+    console.log('here is the current user id', user._id)
     return (
         <>
             <Container className='fluid'>
@@ -92,8 +93,8 @@ const ShowService = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {/* {
-                            service.owner && user && service.owner._id === user._id ?  */}
+                        {
+                            service.owner === user._id ? 
                                 <>
                                     <Button 
                                         onClick={() => setEditModalShow(true)} 
@@ -110,9 +111,9 @@ const ShowService = (props) => {
                                         Delete this Service
                                     </Button> 
                                 </>
-                                {/* :
+                                :
                                 null
-                        } */}
+                        }
                     </Card.Footer>
                 </Card>
             </Container>
