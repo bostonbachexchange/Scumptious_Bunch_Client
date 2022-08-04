@@ -31,7 +31,10 @@ const FreelancerIndex = (props) => {
     useEffect(() => {
         console.log(props)
         getAllFreelancers()
-            .then(res => setFreelancers(res.data.freelancers))
+            .then(res => {
+                console.log('users:', res.data.users)
+                setFreelancers(res.data.users)
+            })
             .catch(err => {
                 msgAlert({
                     heading: 'Error Getting Freelancers',
@@ -58,7 +61,7 @@ const FreelancerIndex = (props) => {
             <Card.Header>{ freelancer.fullTitle }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={`/freelancers/${freelancer.id}`}>View { freelancer.name }</Link>
+                    <Link to={`/freelancers/${freelancer._id}`}>View { freelancer.name }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
@@ -69,6 +72,9 @@ const FreelancerIndex = (props) => {
             { freelancerCards }
         </div>
     )
+    // return (
+    //     <>hi</>
+    // )
 }
 
 export default FreelancerIndex
