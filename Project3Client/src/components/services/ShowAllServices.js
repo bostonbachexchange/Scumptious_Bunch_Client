@@ -59,7 +59,9 @@ const ShowAllServices = (props) => {
             <Card.Header>{ service.name}</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <small>{ service.type }</small><br />
+                    <small><em>Type: { service.type }</em></small><br />
+                    <small>{ service.description }</small><br />
+                    <small>Location: { service.location }</small><br />
                     <small>${ service.rate }</small><br />
                     <Link to={`/services/${service._id}`}>View { service.name }</Link>
                 </Card.Text>
