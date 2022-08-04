@@ -43,14 +43,12 @@ const CreateService = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // we want it to hit the createService function
-        console.log('handle submit running')
+        // console.log('handle submit running')
         createService(user, service)
         // if successful, navigate to the show page for the new pet
             .then((res) => { 
-                console.log(res)
-                navigate(`/services/`)
-                // TODO: GET TO GO TO SHOW PAGE
-               // navigate(`/services/${res.data.service.id}`)
+                // console.log('here is the response', res)
+                navigate(`/services/${res.data.service._id}`)
             })
         // send a success message to the user
             .then(() =>
