@@ -33,11 +33,11 @@ const ShowService = (props) => {
     const navigate = useNavigate()
     // useNav returns a function
     // we can call that function to redirect the user wherever we want to
-    console.log('here are props', props)
-    console.log('here is the id from useParams', id)
+    // console.log('here are props', props)
+    // console.log('here is the id from useParams', id)
     const { user, msgAlert } = props;
-    console.log('the service in props', service)
-    console.log('user in props', user)
+    // console.log('the service in props', service)
+    // console.log('user in props', user)
     useEffect(() => {
         getOneService(id)
             .then(res => setService(res.data.service))

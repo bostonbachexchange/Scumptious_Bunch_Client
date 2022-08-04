@@ -34,10 +34,7 @@ export const createService = (user, newService) => {
 
 // UPDATE
 export const updateService = (user, updatedService) => {
-    // console.log('createPet in API was hit')
-    // in our createPet form, we're building an object
-    // when we pass that object into the api createPet function, it's going to look like the pets in our database
-    // we're going to refer to this as newPet
+    console.log('updateService in API was hit')
     console.log('this is updated service', updatedService)
 	return axios({
 		url: `${apiUrl}/services/${updatedService.id}`,
@@ -45,7 +42,7 @@ export const updateService = (user, updatedService) => {
 		headers: {
 			Authorization: `Token token=${user.token}`,
 		},
-        // since newPet and pet have the same fields, we just have to do this!
+        // since updatedService and service have the same fields, we just have to do this!
 		data: { service: updatedService } ,
 	})
 }

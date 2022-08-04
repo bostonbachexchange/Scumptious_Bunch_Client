@@ -34,10 +34,10 @@ const EditServiceModal = (props) => {
         })
     }
     const handleSubmit = (e) => {
-        // this is where we put updatePet! We need (user, updatedPet)
-        // once again, we get a similar function from createPet component
+        // this is where we put updatePet! We need (user, updateService)
+        // once again, we get a similar function from createService component
         e.preventDefault();
-        // we want it to hit the updatePet function
+        // we want it to hit the updateService function
         updateService(user, service)
         // if we're successful in the modal, we want the modal to close
             .then(() => handleClose())
