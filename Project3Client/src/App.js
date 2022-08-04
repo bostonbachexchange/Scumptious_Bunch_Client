@@ -91,6 +91,10 @@ const App = () => {
 						element={ <ShowService msgAlert={msgAlert} user={user} />} 
 					/>
 					<Route
+						path="/services/user/:id"
+						element={ <ShowService msgAlert={msgAlert} user={user} />} 
+					/>
+					<Route
 						path="/services/"
 						element={ 
 							<RequireAuth user={user}>
@@ -98,7 +102,12 @@ const App = () => {
 							</RequireAuth>
 						}
 					/>
-					<Route path='/freelancers' element={<FreelancerIndex msgAlert={msgAlert} />} />
+					<Route 
+						path='/freelancers' 
+						element={
+							<FreelancerIndex msgAlert={msgAlert} />
+						} 
+					/>
 					<Route 
 						path='/freelancers/:id' 
 						element={<ShowFreelancer user={ user } msgAlert={ msgAlert }/>} 

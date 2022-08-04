@@ -7,10 +7,10 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { Container, Card, Button } from 'react-bootstrap'
 
 import LoadingScreen from '../shared/LoadingScreen'
+import { getServicesByUser } from '../../api/services'
 import { getOneFreelancer } from '../../api/freelancers'
 import messages from '../shared/AutoDismissAlert/messages'
 
-// import ShowToy from '../toys/ShowToy'
 
 // we'll use a style object to lay out the toy cards
 const cardContainerLayout = {
@@ -21,60 +21,71 @@ const cardContainerLayout = {
 
 const ShowFreelancer = (props) => {
     const [freelancer, setFreelancer] = useState(null)
-    const [updated, setUpdated] = useState(false)
-
-    const { id } = useParams()
+    const [service, setService] = useState(null)
+    let serviceToShow;
+    // destructuring to get the id value from our route params
+    const { id } = useParams();
+    console.log('here is id', id)
     const navigate = useNavigate()
-    // useNavigate returns a function
-    // we can call that function to redirect the user wherever we want to
-
-    const { user, msgAlert } = props
-    console.log('user in props', user)
-    console.log('the freelancer in showPet', freelancer)
-    // destructuring to get the id value from our route parameters
-    console.log(id)
+    const { user, msgAlert } = props;
+    // this returns the services that we want to show (from the desired user/freelancer)
     useEffect(() => {
-        console.log('get one freelancers')
+        getServicesByUser(id)
+            .then(res => { setService(res.data.services)})
+            .catch(err => {
+                msgAlert({
+                    heading: 'Error getting service',
+                    body: messages.getServicesFailure,
+                    variant: 'danger',
+                })
+                navigate('/');
+            })
+    }, [])
+    // IDEALLY, this returns the desired user information that we want to show as well as the services
+    useEffect(() => {
         getOneFreelancer(id)
-            .then(res => {
-                console.log('HAYDEN READ HERE', res.data.user)
-                setFreelancer(res.data.user)
+            .then(response => {
+                console.log('res here:', response)
+                setFreelancer(response.data.user)
             })
             .catch(err => {                   
                 msgAlert({
-                    heading: 'Error getting pet',
+                    heading: 'Error getting freelancer',
                     message: messages.getFreelancersFailure,
                     variant: 'danger'
                 })
-                // navigate('/')
-                //navigate back to the home page if there's an error fetching
+                navigate('/')
             })
-    }, [updated])
-
-    // let freelancerCards
-    // if (freelancer) {
-    //     if (freelancer.toys.length > 0) {
-    //         toyCards = pet.toys.map(toy => (
-    //             <ShowToy 
-    //                 key={toy._id}
-    //                 toy={toy}
-    //                 pet={pet}
-    //                 user={user}
-    //                 msgAlert={msgAlert}
-    //                 triggerRefresh={() => setUpdated(prev => !prev)}
-    //             />
-    //         ))
-    //     }
-    // }
-
-    if (!freelancer) {
+    }, [])
+    console.log('here is the freelancer', freelancer)
+    console.log('here is service', service)
+    if (!service) {
         return <LoadingScreen />
     }
-
     return (
         <>
-            <Container className="fluid">
+            <Container className='fluid'>
                 <Card>
+                    <Card.Header>{ service.name }</Card.Header>
+                    <Card.Body>
+                        <Card.Text>
+                            <div><small>Type: { service.type }</small></div>
+                            <div><small>Type: { service.description }</small></div>
+                            <div><small>Type: { service.location }</small></div>
+                            <div><small>Rate: ${ service.rate }</small></div>
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                    </Card.Footer>
+                </Card>
+            </Container>
+        </>
+    )
+}
+
+
+
+                {/* <Card>
                     <Card.Header>{ freelancer.name }</Card.Header>
                     <Card.Body>
                         <Card.Text>
@@ -87,19 +98,7 @@ const ShowFreelancer = (props) => {
                                 </small></div>
                                 ) : (
                                     <p>user does not have a profile yet.</p>
-                            )}
-                            
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    </Card.Footer>
-                </Card>
-            </Container>
-            {/* NEED TO DO THIS BUT WITH SERVICES <Container style={cardContainerLayout}>
-                {toyCards}
-            </Container> */}
-        </>
-    )
-}
+                            )} */}
+
 
 export default ShowFreelancer
