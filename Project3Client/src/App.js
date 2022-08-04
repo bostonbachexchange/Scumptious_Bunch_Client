@@ -7,6 +7,7 @@ import { v4 as uuid } from 'uuid'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
+import RequireFreelancer from './components/shared/RequireFreelancer'
 import Home from './components/Home'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
@@ -70,7 +71,7 @@ const App = () => {
 					path='/change-password'
 					element={
 						<RequireAuth user={user}>
-						<ChangePassword msgAlert={msgAlert} user={user} />
+							<ChangePassword msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
 					/>
 					<Route
@@ -79,7 +80,11 @@ const App = () => {
 					/>
 					<Route
 						path="/services/create-service"
-						element={ <CreateService msgAlert={msgAlert} user={user} />} 
+						element={ 
+							<RequireFreelancer user={user}>
+								<CreateService msgAlert={msgAlert} user={user} />
+							</RequireFreelancer>
+							} 
 					/>
 					<Route
 						path="/services/:id"

@@ -4,7 +4,7 @@ import ServiceForm from '../shared/ServiceForm';
 import messages from '../shared/AutoDismissAlert/messages'
 
 const EditServiceModal = (props) => {
-    console.log('here are the props in the EditServiceModal', props)
+    // console.log('here are the props in the EditServiceModal', props)
     // these props come from the parent component
     const { 
         user, 
@@ -15,7 +15,7 @@ const EditServiceModal = (props) => {
         triggerRefresh, 
     } = props
     const [service, setService] = useState(props.service)
-    console.log('service in edit modal', service)
+    // console.log('service in edit modal', service)
     const handleChange = (e) => {
         // we got this same function from create!
         setService(prevService => {
@@ -37,8 +37,6 @@ const EditServiceModal = (props) => {
         // this is where we put updatePet! We need (user, updateService)
         // once again, we get a similar function from createService component
         e.preventDefault();
-        console.log('here is the service', service)
-        console.log('here is the service _id', service._id)
         // we want it to hit the updateService function
         updateService(user, service)
         // if we're successful in the modal, we want the modal to close

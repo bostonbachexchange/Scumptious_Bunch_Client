@@ -52,7 +52,7 @@ const ShowAllServices = (props) => {
     if (error) {
         return <p>Error!</p>
     }
-    console.log('here are our services!', services)
+    // console.log('here are our services!', services)
 
     const serviceCards = services.map(service => (
         <Card style={{ width: '30%', margin: 5}} key={ service._id }>
