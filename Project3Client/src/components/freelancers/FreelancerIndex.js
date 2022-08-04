@@ -45,9 +45,9 @@ const FreelancerIndex = (props) => {
             })
     }, [])
 
-    if (error) {
-        return <p>Error!</p>
-    }
+    // if (error) {
+    //     return <p>Error!</p>
+    // }
 
     // If freelancers haven't been loaded yet, show a loading message
     if (!freelancers) {

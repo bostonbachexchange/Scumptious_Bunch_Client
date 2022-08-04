@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import FreelancerIndex from './components/freelancers/FreelancerIndex'
+import ShowFreelancer from './components/freelancers/ShowFreelancer'
 
 const App = () => {
 
@@ -55,6 +56,9 @@ const App = () => {
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
 					<Route path='/freelancers' element={<FreelancerIndex msgAlert={msgAlert} />} />
+					<Route 
+					path='/freelancers/:id' 
+					element={<ShowFreelancer user={ user } msgAlert={ msgAlert }/>} />
           			<Route
             			path='/sign-out'
             			element={
