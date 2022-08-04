@@ -51,7 +51,6 @@ const ShowService = (props) => {
                 navigate('/');
             })
     }, [updated])
-    // TODO: add updated to dependency array when we have edit modal
     // here we'll declare a function that runs which will remove the pet
     // this function's promise chain should send a message, and then go somewhere
     const removeTheService = () => {
@@ -79,8 +78,6 @@ const ShowService = (props) => {
     if (!service) {
         return <LoadingScreen />
     }
-    console.log('here is the service owner', service.owner)
-    console.log('here is the current user id', user._id)
     return (
         <>
             <Container className='fluid'>
@@ -89,12 +86,14 @@ const ShowService = (props) => {
                     <Card.Body>
                         <Card.Text>
                             <div><small>Type: { service.type }</small></div>
-                            <div><small>Rate: { service.rate }</small></div>
+                            <div><small>Type: { service.description }</small></div>
+                            <div><small>Type: { service.location }</small></div>
+                            <div><small>Rate: ${ service.rate }</small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
                         {
-                            service.owner === user._id ? 
+                            user && service.owner === user._id ? 
                                 <>
                                     <Button 
                                         onClick={() => setEditModalShow(true)} 
