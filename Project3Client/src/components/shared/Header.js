@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+import RequireAuth from './RequireAuth'
+import RequireFreelancer from './RequireFreelancer'
 const linkStyle = {
     color: 'white',
     textDecoration: 'none'
@@ -11,13 +13,18 @@ const linkStyle = {
 // TODO: SET UP FREELANCER SPECIFIC OPTIONS
 ////////////////////////////////////
 
+const freelancerOptions = (
+		<>
+			<Nav.Item className="m-2">
+				<Link to='services/create-service' style={linkStyle}>
+					Create Service
+				</Link>
+			</Nav.Item>
+		</>
+)
+
 const authenticatedOptions = (
 	<>
-		<Nav.Item className="m-2">
-			<Link to='services/create-service' style={linkStyle}>
-				Create Service
-			</Link>
-		</Nav.Item>
 		<Nav.Item className="m-2">
 			<Link to='change-password' style={linkStyle}>
 				Change Password
@@ -72,6 +79,7 @@ const Header = ({ user }) => (
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
+				{user && user.isFreelancer ? freelancerOptions : null}
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>
