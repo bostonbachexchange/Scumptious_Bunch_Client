@@ -11,7 +11,9 @@ const messages = {
 	removeServiceSuccess: 'Service removed successfully!',
 	removeServiceFailure: 'Failed to delete service.',
 	createServiceSuccess: 'Service created successfully!',
-	createServiceFailure: 'Failed to create service.'
+	createServiceFailure: 'Failed to create service.',
+	updateServiceSuccess: 'Service updated successfully!',
+	updateServiceFailure: 'Failed to update service.'
 }
 
 module.exports = messages
