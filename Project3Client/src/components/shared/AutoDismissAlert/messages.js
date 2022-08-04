@@ -9,7 +9,9 @@ const messages = {
 	getServicesSuccess: 'Services loaded successfully!',
 	getServicesFailure: 'Failed to get services. Please try again later.',
 	removeServiceSuccess: 'Service removed successfully!',
-	removeServiceFailure: 'Failed to delete service.'
+	removeServiceFailure: 'Failed to delete service.',
+	createServiceSuccess: 'Service created successfully!',
+	createServiceFailure: 'Failed to create service.'
 }
 
 module.exports = messages

@@ -6,8 +6,18 @@ const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
+
+////////////////////////////////////
+// TODO: SET UP FREELANCER SPECIFIC OPTIONS
+////////////////////////////////////
+
 const authenticatedOptions = (
 	<>
+		<Nav.Item className="m-2">
+			<Link to='services/create-service' style={linkStyle}>
+				Create Service
+			</Link>
+		</Nav.Item>
 		<Nav.Item className="m-2">
 			<Link to='change-password' style={linkStyle}>
 				Change Password

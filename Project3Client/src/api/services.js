@@ -14,19 +14,19 @@ export const getOneService = (id) => {
 // CREATE
 
 export const createService = (user, newService) => {
-    // console.log('createPet in API was hit')
+    console.log('createService in API was hit')
     // in our createService form, we're building an object
     // when we pass that object into the api createService function, it's going to look like the services in our database
     // we're going to refer to this as newService
-    // console.log('this is user:', user)
-    // console.log('this is newPet', newService)
+    console.log('this is user:', user)
+    console.log('this is newService', newService)
 	return axios({
 		url: apiUrl + '/services',
 		method: 'POST',
 		headers: {
 			Authorization: `Token token=${user.token}`,
 		},
-        // since newPet and pet have the same fields, we just have to do this!
+        // since newService and service have the same fields, we just have to do this!
 		data: { service: newService } ,
 	})
 }

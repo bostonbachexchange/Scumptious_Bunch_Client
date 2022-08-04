@@ -77,6 +77,10 @@ const App = () => {
 						element={ <ShowAllServices msgAlert={msgAlert} user={user} />} 
 					/>
 					<Route
+						path="/services/create-service"
+						element={ <CreateService msgAlert={msgAlert} user={user} />} 
+					/>
+					<Route
 						path="/services/:id"
 						element={ <ShowService msgAlert={msgAlert} user={user} />} 
 					/>
