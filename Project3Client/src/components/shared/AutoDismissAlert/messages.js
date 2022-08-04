@@ -13,6 +13,8 @@ const messages = {
 	createServiceSuccess: 'Service created successfully!',
 	createServiceFailure: 'Failed to create service.',
 	getFreelancersFailure: 'Error fetching freelancers.',
+	updateServiceSuccess: 'Service updated successfully!',
+	updateServiceFailure: 'Failed to update service.'
 }
 
 module.exports = messages
