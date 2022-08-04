@@ -37,7 +37,7 @@ export const updateService = (user, updatedService) => {
     console.log('updateService in API was hit')
     console.log('this is updated service', updatedService)
 	return axios({
-		url: `${apiUrl}/services/${updatedService.id}`,
+		url: `${apiUrl}/services/${updatedService._id}`,
 		method: 'PATCH',
 		headers: {
 			Authorization: `Token token=${user.token}`,

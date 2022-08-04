@@ -37,6 +37,8 @@ const EditServiceModal = (props) => {
         // this is where we put updatePet! We need (user, updateService)
         // once again, we get a similar function from createService component
         e.preventDefault();
+        console.log('here is the service', service)
+        console.log('here is the service _id', service._id)
         // we want it to hit the updateService function
         updateService(user, service)
         // if we're successful in the modal, we want the modal to close
@@ -49,7 +51,7 @@ const EditServiceModal = (props) => {
                 })
             )
             // if successful, we need to trigger a refresh for the show page so we see the new information immediately
-            // this refreshes the state of the pet component to the updated information!
+            // this refreshes the state of the service component to the updated information!
             .then(()=> triggerRefresh())
             // this tells the user about an error
             .catch(msgAlert({
