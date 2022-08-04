@@ -14,8 +14,9 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowAllServices from './components/services/ShowAllServices.js'
 import ShowService from './components/services/ShowService.js'
-// TODO: future promising this one
 import CreateService from './components/services/CreateService'
+import FreelancerIndex from './components/freelancers/FreelancerIndex'
+import ShowFreelancer from './components/freelancers/ShowFreelancer'
 
 const App = () => {
 
@@ -91,6 +92,26 @@ const App = () => {
 								<CreateService msgAlert={msgAlert} user={user} /> 
 							</RequireAuth>
 						}
+					/>
+					<Route path='/freelancers' element={<FreelancerIndex msgAlert={msgAlert} />} />
+					<Route 
+						path='/freelancers/:id' 
+						element={<ShowFreelancer user={ user } msgAlert={ msgAlert }/>} 
+					/>
+					<Route
+						path='/sign-out'
+						element={
+						<RequireAuth user={user}>
+							<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+						</RequireAuth>
+						}
+					/>
+					<Route
+						path='/change-password'
+						element={
+						<RequireAuth user={user}>
+							<ChangePassword msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
 					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (

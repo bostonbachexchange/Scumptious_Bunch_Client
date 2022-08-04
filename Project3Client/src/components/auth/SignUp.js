@@ -9,7 +9,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignUp = (props) => {
-    const { msgAlert } = props
     const [name, setName] = useState('')
     const [isFreelancer, setIsFreelancer] = useState('')
     const [email, setEmail] = useState('')
@@ -23,7 +22,7 @@ const SignUp = (props) => {
 
 		const { msgAlert, setUser } = props
 
-        const credentials = {name, email, password, passwordConfirmation}
+        const credentials = {name, email, isFreelancer, password, passwordConfirmation}
 
 		signUp(credentials)
             .then(console.log(credentials))
