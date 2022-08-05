@@ -68,9 +68,12 @@ const FreelancerIndex = (props) => {
     ))
 
     return (
-        <div style={ cardContainerStyle }>
-            { freelancerCards }
-        </div>
+        <>
+        <h3>Check out some of our talented freelancers below to learn more about what they have to offer.</h3>
+            <div style={ cardContainerStyle }>
+                { freelancerCards }
+            </div>
+        </>
     )
     // return (
     //     <>hi</>

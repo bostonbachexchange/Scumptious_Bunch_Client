@@ -11,6 +11,12 @@ export const getOneService = (id) => {
     return axios(`${apiUrl}/services/${id}`)
 }
 
+// // READ => SHOW SERVICES BY ONE USER
+// export const getServicesByUser = (id) => {
+//     return axios(`${apiUrl}/services/user/${id}`)
+// }
+
+
 // CREATE
 
 export const createService = (user, newService) => {

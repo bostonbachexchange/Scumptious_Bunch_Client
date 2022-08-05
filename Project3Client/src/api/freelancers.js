@@ -10,3 +10,9 @@ export const getAllFreelancers = () => {
 export const getOneFreelancer = (id) => {
     return axios(`${apiUrl}/freelancers/${id}`)
 }
+
+
+// READ => SHOW SPECIFIC USER / FREELANCER SERVICES
+export const getServicesByUser = (id) => {
+    return axios(`${apiUrl}/freelancer/services/${id}`)
+}
