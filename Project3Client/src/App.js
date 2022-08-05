@@ -25,7 +25,7 @@ const App = () => {
 
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
-
+	
 	console.log('user in app', user)
 	console.log('message alerts', msgAlerts)
 	const clearUser = () => {
@@ -107,7 +107,7 @@ const App = () => {
 					<Route
 						path="/profile/:userId"
 						element={ 
-							<RequireAuth user={user}>
+							<RequireAuth user={user} > 
 								<CreateProfile msgAlert={msgAlert} user={user} /> 
 							</RequireAuth>
 						}
@@ -116,7 +116,7 @@ const App = () => {
 						path="/profile"
 						element={ 
 							<RequireAuth user={user}>
-								<ShowProfile msgAlert={msgAlert} user={user} /> 
+								<ShowProfile msgAlert={msgAlert} user={user} setUser={setUser} /> 
 							</RequireAuth>
 						}
 					/>

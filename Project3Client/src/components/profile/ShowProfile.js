@@ -19,7 +19,7 @@ import {
     useState, 
     useEffect 
 } from 'react'
-import EditProfileModel from './EditProfileModal'
+import EditProfileModal from './EditProfileModal'
 
 // hiding for later!
 
@@ -27,12 +27,12 @@ import EditProfileModel from './EditProfileModal'
 const ShowProfiles = (props) => {
     const [profile, setProfile] = useState(null)
     // TODO: future promise for the edit service modal!
-    // const [editModalShow, setEditModalShow] = useState(false) 
+    const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
     const [updated, setUpdated] = useState(false);
     let profileToShow;
     // destructuring to get the id value from our route params
-    const { user, msgAlert } = props;
+    const { user, setUser, msgAlert } = props;
     const { id } = useParams()
     const navigate = useNavigate()
     // useNav returns a function
@@ -40,6 +40,7 @@ const ShowProfiles = (props) => {
     // console.log('here are props', props)
     // console.log('here is the user id from useParams', user._id)
     // console.log('user in props', user)
+    console.log('setUser in props', setUser)
     useEffect(() => {
         setProfile(user.profile)
     }, [])
@@ -49,6 +50,7 @@ const ShowProfiles = (props) => {
     const removeTheProfile = () => {
         // console.log('profile to delete', profile)
          removeProfile(user)
+            .then(() => setProfile(null))
             // on success send a success message
             // setProfile(null)
             .then(() => {
@@ -78,24 +80,24 @@ const ShowProfiles = (props) => {
         <>
             <Container className='fluid'>
                 <Card>
-                    <Card.Header>{ profile.image }</Card.Header>
+                    <Card.Header><img src={ profile.image }/></Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <div><small>Type: { profile.aboutMe }</small></div>
-                            <div><small>Rate: { profile.phone }</small></div>
+                            <div><small>About Me: { profile.aboutMe }</small></div>
+                            <div><small>Phone: { profile.phone }</small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
                         {
                             // service.owner && user && service.owner._id === user._id ? 
                                 <>
-                                    {/* <Button 
+                                    <Button 
                                         onClick={() => setEditModalShow(true)} 
                                         className="m-2" 
                                         variant="warning"
                                     >
-                                        Edit Service
-                                    </Button>  */}
+                                        Edit Profile
+                                    </Button> 
                                     <Button 
                                         onClick={() => removeTheProfile()} 
                                         className="m-2" 
@@ -110,15 +112,16 @@ const ShowProfiles = (props) => {
                     </Card.Footer>
                 </Card>
             </Container>
-            {/* <EditPetModal 
+            <EditProfileModal 
                 user = {user}
-                pet = {pet}
+                setUser = {setUser}
+                profile = {profile}
                 show = {editModalShow}
-                updatePet = {updatePet}
+                updateProfile = {updateProfile}
                 msgAlert = {msgAlert}
                 triggerRefresh  = {() => setUpdated(prev => !prev)}
                 handleClose = {() => setEditModalShow((false))}
-            /> */}
+            />
         </>
     );
 }

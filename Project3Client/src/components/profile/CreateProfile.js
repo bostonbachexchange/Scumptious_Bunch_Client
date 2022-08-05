@@ -8,10 +8,10 @@ import messages from '../shared/AutoDismissAlert/messages'
 const CreateProfile = (props) => {
     const { id } = useParams()
     const navigate = useNavigate()
-    const { user, msgAlert } = props
+    const { user, setUser, msgAlert } = props
     console.log(id)
     // console.log('these are the props in CreateService \n', props)
-    const [profile, setProfile] = useState({
+    const [profile, setProfile] = useState({ // this is the state for our form
         aboutMe: '',
         phone: '',
         image: '',
@@ -20,6 +20,7 @@ const CreateProfile = (props) => {
     // this will handle typing in the form!
     const handleChange = (e) => {
         setProfile(prevProfile => {
+         //setUser(prevProfile => {
             let updatedValue = e.target.value;
             const updatedName = e.target.name;
             // console.log('this is the input type', e.target.type)
@@ -45,6 +46,8 @@ const CreateProfile = (props) => {
         // we want it to hit the createService function
         // console.log('handle submit running')
         createProfile(user, profile)
+        // api call
+            .then(() => setProfile(profile))
         // if successful, navigate to the show page for the new pet
             .then((res) => { 
                 // console.log('here is the response', res)

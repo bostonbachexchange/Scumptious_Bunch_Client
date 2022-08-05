@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap'
 import ProfileForm from '../shared/ProfileForm';
 import messages from '../shared/AutoDismissAlert/messages'
-import { updateProfile } from '../../api/profiles';
+// import { updateProfile } from '../../api/profiles';
 
 const EditProfileModal = (props) => {
     // console.log('here are the props in the EditServiceModal', props)
@@ -14,9 +14,10 @@ const EditProfileModal = (props) => {
         updateProfile, 
         msgAlert, 
         triggerRefresh, 
+        setUser
     } = props
     const [profile, setProfile] = useState(props.profile)
-    // console.log('profile in edit modal', profile)
+    console.log('profile in edit modal', profile)
     const handleChange = (e) => {
         // we got this same function from create!
         setProfile(prevProfile => {
@@ -41,6 +42,8 @@ const EditProfileModal = (props) => {
         // we want it to hit the updateService function
         updateProfile(user, profile)
         // if we're successful in the modal, we want the modal to close
+            // console.log('userSet is going to set', profile)
+            .then(() => setUser(setUser)) 
             .then(() => handleClose())
             .then(() =>
                 msgAlert({
@@ -65,7 +68,7 @@ const EditProfileModal = (props) => {
             <Modal.Header closeButton />
             <Modal.Body>
                 <ProfileForm 
-                    profilee={profile}
+                    profile={profile}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     heading="Update Profile"

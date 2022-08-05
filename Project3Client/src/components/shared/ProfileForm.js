@@ -10,7 +10,8 @@ import {
 
 const ProfileForm = (props) => {
     const { profile, handleChange, handleSubmit, heading } = props
-
+    console.log('profile', profile)
+    console.log('here are the props in profile form', props)
     return (
         <Container className="justify-content-center">
             <h3>{heading}</h3>
