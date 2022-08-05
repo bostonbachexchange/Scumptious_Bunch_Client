@@ -63,23 +63,22 @@ const ShowFreelancer = (props) => {
         return <LoadingScreen />
     }
     const freelancerServices = service.map(service => (
-        <Card style={{ width: '30%', margin: 5}} key={ service.id }>
-            <Card.Header>{ service.name }</Card.Header>
-            <Card.Body>
-                <Card.Text>
-                    <div><small>Type: { service.type }</small></div>
-                    <div><small>Type: { service.description }</small></div>
-                    <div><small>Type: { service.location }</small></div>
-                    <div><small>Rate: ${ service.rate }</small></div>
-                    <Link to={`/services/${service._id}`}>View { service.name }</Link>
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        <>
+            <Card style={{ width: '30%', margin: 5}} key={ service.id }>
+                <Card.Header>{ service.name }</Card.Header>
+                <Card.Body>
+                    <Card.Text>
+                        <div><small>Type: { service.type }</small></div>
+                        <div><small>Description: { service.description }</small></div>
+                        <div><small>Location: { service.location }</small></div>
+                        <div><small>Rate: ${ service.rate }</small></div>
+                        <Link to={`/services/${service._id}`}>View { service.name }</Link>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </>
     ))
-    ////
     // console.log('here is the freelancer variable', freelancer)
-    console.log('here is service[0] variable', service[0])
-
     return (
         <>
             <div>
@@ -93,7 +92,7 @@ const ShowFreelancer = (props) => {
                                     <p>user does not have a profile yet.</p>
                             )} */}
             </div>
-            <Container className='fluid'>
+            <Container className='fluid-services'>
                 {freelancerServices}
             </Container>
         </>
