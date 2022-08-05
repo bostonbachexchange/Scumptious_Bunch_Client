@@ -30,7 +30,6 @@ const ProfileForm = (props) => {
                     id="aboutMe" 
                     as="textarea" 
                     rows={3}
-                    // type="text" 
                     placeholder="Tell us about your self"
                     // value={ profile.aboutMe }
                     onChange={ handleChange }

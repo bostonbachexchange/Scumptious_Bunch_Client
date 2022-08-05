@@ -16,7 +16,7 @@ export const createProfile = (user, newProfile) => {
     console.log('this is newProfile', newProfile)
 	return axios({
 		// POST /profile/<user_id>
-		url: apiUrl + `/profile/${user.id}`,
+		url: apiUrl + `/profile/${user._id}`,
 		method: 'POST',
 		headers: {
 			Authorization: `Token token=${user.token}`,
