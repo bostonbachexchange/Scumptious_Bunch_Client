@@ -36,22 +36,11 @@ const ShowProfiles = (props) => {
     const navigate = useNavigate()
     // useNav returns a function
     // we can call that function to redirect the user wherever we want to
-    console.log('here are props', props)
-    console.log('here is the user id from useParams', user._id)
-    
-    console.log('user in props', user)
+    // console.log('here are props', props)
+    // console.log('here is the user id from useParams', user._id)
+    // console.log('user in props', user)
     useEffect(() => {
-        getOneProfile(user._id)
-            .then(res => setProfile(res.data.user.profile))
-            .catch(err => {
-                msgAlert({
-                    heading: 'Error getting Profile',
-                    body: messages.getProfilesFailure,
-                    variant: 'danger',
-                })
-                // navigate back to the home page if there's an error fetching
-                // navigate('/');
-            })
+        setProfile(user.profile)
     }, [])
     // TODO: add updated to dependency array when we have edit modal
     // here we'll declare a function that runs which will remove the pet
@@ -77,9 +66,10 @@ const ShowProfiles = (props) => {
                 })
             })
     }
+    console.log()
     // If service hasn't been loaded yet, show a loading message
     if (!profile) {
-        return <LoadingScreen />
+        return <>profile has not been set</>
     }
     
     return (
