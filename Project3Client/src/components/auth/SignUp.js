@@ -14,15 +14,48 @@ const SignUp = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
-
+    const [credentials, setCredentials] = useState({
+        name: '',
+        isFreelancer: false,
+        password: '',
+        passwordConfirmation: ''
+    });
+    
     const navigate = useNavigate()
+    console.log('credentials in Sign Up', credentials)
+    ///////
+    // handle change function goes here
+    ///////
+    const handleChange = (e) => {
+        setCredentials(prevCred => {
+            let updatedValue = e.target.value;
+            const updatedName = e.target.name;
+
+            console.log('this is the input type', e.target.type)
+
+            // this handles the checkbox, changing on to true etc
+            if (updatedName === "isFreelancer" && e.target.checked) {
+                updatedValue = true
+            } else if (updatedName === "isFreelancer" && !e.target.checked) {
+                updatedValue = false
+            }
+
+            const updatedCredentials = {
+                [updatedName]: updatedValue
+            }
+            return {
+                ...prevCred,
+                ...updatedCredentials
+            }
+        })
+    }
+
+    ///////
 
 	const onSignUp = (event) => {
 		event.preventDefault()
 
 		const { msgAlert, setUser } = props
-
-        const credentials = {name, email, isFreelancer, password, passwordConfirmation}
 
 		signUp(credentials)
             .then(console.log(credentials))
@@ -47,8 +80,7 @@ const SignUp = (props) => {
 				})
 			})
 	}
-
-
+    
     return (
         <div className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
@@ -60,9 +92,9 @@ const SignUp = (props) => {
                             required
                             type='text'
                             name='name'
-                            value={name}
+                            value={ credentials.name }
                             placeholder='Enter username'
-                            onChange={e => setName(e.target.value)}
+                            onChange={ handleChange }
                         />
                     </Form.Group>
                     <Form.Group controlId='isFreelancer'>
@@ -70,7 +102,7 @@ const SignUp = (props) => {
                             label="Are You a Freelancer?" 
                             id="isFreelancer" 
                             name="isFreelancer"
-                            onChange={e => setIsFreelancer(e.target.value) }
+                            onChange={ handleChange }
                         />
                     </Form.Group>
                     <Form.Group controlId='email'>
@@ -79,9 +111,9 @@ const SignUp = (props) => {
                             required
                             type='email'
                             name='email'
-                            value={email}
+                            value={ credentials.email }
                             placeholder='Enter email'
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={ handleChange }
                         />
                     </Form.Group>
                     <Form.Group controlId='password'>
@@ -89,10 +121,10 @@ const SignUp = (props) => {
                         <Form.Control
                             required
                             name='password'
-                            value={password}
+                            value={ credentials.password }
                             type='password'
                             placeholder='Password'
-                            onChange={e => setPassword(e.target.value)}
+                            onChange={ handleChange }
                         />
                     </Form.Group>
                     <Form.Group controlId='passwordConfirmation'>
@@ -100,10 +132,10 @@ const SignUp = (props) => {
                         <Form.Control
                             required
                             name='passwordConfirmation'
-                            value={passwordConfirmation}
+                            value={ credentials.passwordConfirmation}
                             type='password'
                             placeholder='Confirm Password'
-                            onChange={e => setPasswordConfirmation(e.target.value)}
+                            onChange={ handleChange }
                         />
                     </Form.Group>
                     <Button variant='primary' type='submit'>
