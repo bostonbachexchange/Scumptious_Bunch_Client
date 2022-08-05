@@ -24,6 +24,17 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Item>
 		<Nav.Item className="m-2">
+			<Link to='profile/create' style={linkStyle}>
+			{/* <Link to='profile/:userId' style={linkStyle}> */}
+				Add Profile
+			</Link>
+		</Nav.Item>
+		<Nav.Item className="m-2">
+			<Link to='profile' style={linkStyle}>
+				Show Profile
+			</Link>
+		</Nav.Item>
+		<Nav.Item className="m-2">
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>

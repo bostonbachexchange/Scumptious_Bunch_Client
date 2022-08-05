@@ -17,6 +17,8 @@ import ShowService from './components/services/ShowService.js'
 import CreateService from './components/services/CreateService'
 import FreelancerIndex from './components/freelancers/FreelancerIndex'
 import ShowFreelancer from './components/freelancers/ShowFreelancer'
+import CreateProfile from './components/profile/CreateProfile'
+import ShowProfile from './components/profile/ShowProfile'
 
 const App = () => {
 
@@ -90,6 +92,22 @@ const App = () => {
 						element={ 
 							<RequireAuth user={user}>
 								<CreateService msgAlert={msgAlert} user={user} /> 
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="/profile/:userId"
+						element={ 
+							<RequireAuth user={user}>
+								<CreateProfile msgAlert={msgAlert} user={user} /> 
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="/profile"
+						element={ 
+							<RequireAuth user={user}>
+								<ShowProfile msgAlert={msgAlert} user={user} /> 
 							</RequireAuth>
 						}
 					/>

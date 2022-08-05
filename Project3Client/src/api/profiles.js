@@ -16,7 +16,7 @@ export const createProfile = (user, newProfile) => {
     console.log('this is newProfile', newProfile)
 	return axios({
 		// POST /profile/<user_id>
-		url: apiUrl + `/profile/${id}`,
+		url: apiUrl + `/profile/${user.id}`,
 		method: 'POST',
 		headers: {
 			Authorization: `Token token=${user.token}`,
@@ -43,7 +43,7 @@ export const updateProfile = (user, updatedProfile) => {
 }
 
 // DELETE
-export const deleteProfile = (user) => {
+export const removeProfile = (user) => {
     // 
     console.log('this is deleted service id')
 	return axios({
