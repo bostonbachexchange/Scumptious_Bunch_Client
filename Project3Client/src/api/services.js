@@ -13,7 +13,7 @@ export const getOneService = (id) => {
 
 // READ => SHOW SERVICES BY ONE USER
 export const getServicesByUser = (id) => {
-    return axios(`${apiUrl}/freelancers/${id}`)
+    return axios(`${apiUrl}/services/user/${id}`)
 }
 
 
