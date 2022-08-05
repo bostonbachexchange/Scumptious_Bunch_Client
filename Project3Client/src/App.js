@@ -18,6 +18,8 @@ import ShowService from './components/services/ShowService.js'
 import CreateService from './components/services/CreateService'
 import FreelancerIndex from './components/freelancers/FreelancerIndex'
 import ShowFreelancer from './components/freelancers/ShowFreelancer'
+import StripeContainer from './components/stripe/StripeContainer'
+
 
 const App = () => {
 

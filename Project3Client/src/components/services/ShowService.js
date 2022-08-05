@@ -20,13 +20,16 @@ import {
     useEffect 
 } from 'react'
 import EditServiceModal from './EditServiceModal';
-
+import StripeContainer from '../stripe/StripeContainer';
 
 const ShowService = (props) => {
     const [service, setService] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
     const [updated, setUpdated] = useState(false);
+    // for the payment Form!
+    const [showItem, setShowItem] = useState(false)
+
     let serviceToShow;
     // destructuring to get the id value from our route params
     const { id } = useParams();
@@ -92,6 +95,8 @@ const ShowService = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
+                    {showItem ? <StripeContainer /> : <> <h3>${service.rate}</h3>
+                    <button onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
                         {
                             user && service.owner === user._id ? 
                                 <>
