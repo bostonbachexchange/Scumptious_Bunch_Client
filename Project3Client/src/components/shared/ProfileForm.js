@@ -21,7 +21,7 @@ const ProfileForm = (props) => {
                     id="image" 
                     type="text" 
                     placeholder="imageUrl"
-                    // value={ profile.image }
+                    value={ profile.image }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='aboutMe'>Profile About Me </Form.Label>
@@ -31,7 +31,7 @@ const ProfileForm = (props) => {
                     as="textarea" 
                     rows={3}
                     placeholder="Tell us about your self"
-                    // value={ profile.aboutMe }
+                    value={ profile.aboutMe }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='phone'>Profile Phone Number</Form.Label>
@@ -40,7 +40,7 @@ const ProfileForm = (props) => {
                     id="phone" 
                     type="text" 
                     placeholder="555-555-5555"
-                    // value={ profile.phone }
+                    value={ profile.phone }
                     onChange={ handleChange }
                 />
                 <Button 

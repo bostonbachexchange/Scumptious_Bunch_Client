@@ -48,7 +48,8 @@ const CreateProfile = (props) => {
         // if successful, navigate to the show page for the new pet
             .then((res) => { 
                 // console.log('here is the response', res)
-                navigate(`/profile/${res.data.user.id}`)
+                navigate(`/profile`)
+                // navigate(`/profile/${res.data.user.id}`)
             })
         // send a success message to the user
             .then(() =>
