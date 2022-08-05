@@ -1,5 +1,5 @@
 import FreelancerIndex from "./freelancers/FreelancerIndex"
-
+import ProfileForm from "../components/shared/ProfileForm"
 const Home = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)

@@ -10,11 +10,18 @@ const messages = {
 	getServicesFailure: 'Failed to get services. Please try again later.',
 	removeServiceSuccess: 'Service removed successfully!',
 	removeServiceFailure: 'Failed to delete service.',
+	removeProfileFailure: 'Failed to delete profile.',
+	removeProfileSuccess: 'Profile deleted successfully.',
 	createServiceSuccess: 'Service created successfully!',
 	createServiceFailure: 'Failed to create service.',
 	getFreelancersFailure: 'Error fetching freelancers.',
 	updateServiceSuccess: 'Service updated successfully!',
-	updateServiceFailure: 'Failed to update service.'
+	updateServiceFailure: 'Failed to update service.',
+	createProfileSuccess: 'Profile created successfully!', // prof
+	createProfileFailure: 'Failed to create service.', // prof
+	getProfilesFailure: 'Failed to get profiles. Please try again later.',
+
+	
 }
 
 module.exports = messages
