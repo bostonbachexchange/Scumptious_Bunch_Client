@@ -46,8 +46,10 @@ const ShowProfiles = (props) => {
     // here we'll declare a function that runs which will remove the pet
     // this function's promise chain should send a message, and then go somewhere
     const removeTheProfile = () => {
-        removeProfile(user, profile._id)
+        // console.log('profile to delete', profile)
+         removeProfile(user)
             // on success send a success message
+            // setProfile(null)
             .then(() => {
                 msgAlert({
                     heading: 'Success',
@@ -66,7 +68,6 @@ const ShowProfiles = (props) => {
                 })
             })
     }
-    console.log()
     // If service hasn't been loaded yet, show a loading message
     if (!profile) {
         return <>profile has not been set</>
