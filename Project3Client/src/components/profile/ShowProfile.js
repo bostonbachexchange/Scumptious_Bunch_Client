@@ -19,7 +19,8 @@ import {
     useState, 
     useEffect 
 } from 'react'
-// import ShowProfile from './ShowProfile';
+import EditProfileModel from './EditProfileModal'
+
 // hiding for later!
 
 
