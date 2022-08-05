@@ -86,3 +86,6 @@ View Service - Show
 
 Edit Service
 <img src="./Images/Update Service.png" width="600px" alt="Edit Service" />
+
+# Attribution
+Avatar images found here: <a href="https://www.freepik.com/vectors/pet-animals">Pet animals vector created by freepik - www.freepik.com</a>
