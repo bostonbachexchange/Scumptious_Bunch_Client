@@ -44,10 +44,8 @@ export const updateProfile = (user, updatedProfile) => {
 
 // DELETE
 export const removeProfile = (user) => {
-    // 
-    console.log('this is deleted service id')
 	return axios({
-		url: `${apiUrl}/profile}`,
+		url: `${apiUrl}/profile`,
 		method: 'DELETE',
 		headers: {
 			Authorization: `Token token=${user.token}`,

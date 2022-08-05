@@ -20,9 +20,7 @@ import {
     useEffect 
 } from 'react'
 // import ShowProfile from './ShowProfile';
-// import ShowProfiles from './ShowProfilez';
 // hiding for later!
-// import EditServiceModal from './EditPetModal';
 
 
 const ShowProfiles = (props) => {
@@ -39,8 +37,8 @@ const ShowProfiles = (props) => {
     // useNav returns a function
     // we can call that function to redirect the user wherever we want to
     console.log('here are props', props)
-    console.log('here is the id from useParams', user._id)
-    console.log('the profile in props', profile)
+    console.log('here is the user id from useParams', user._id)
+    
     console.log('user in props', user)
     useEffect(() => {
         getOneProfile(user._id)
