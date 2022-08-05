@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 // useParams will allow us to see our parameters
 // useNavigate will allow us to navigate to a specific page
 
@@ -41,12 +41,14 @@ const ShowFreelancer = (props) => {
                 navigate('/');
             })
     }, [])
+    console.log('here is service', service)
     // IDEALLY, this returns the desired user information that we want to show as well as the services
     useEffect(() => {
         getOneFreelancer(id)
-            .then(response => {
-                console.log('res here:', response)
-                setFreelancer(response.data.user)
+            .then(res => {
+                console.log('res here:', res)
+                console.log('here is res.data.user', res.data.user)
+                setFreelancer(res.data.user)
             })
             .catch(err => {                   
                 msgAlert({
@@ -57,27 +59,37 @@ const ShowFreelancer = (props) => {
                 navigate('/')
             })
     }, [])
-    console.log('here is the freelancer', freelancer)
-    console.log('here is service', service)
+    console.log('here is the freelancer variable', freelancer)
+    console.log('here is service variable', service)
     if (!service) {
         return <LoadingScreen />
     }
+    //// TODO: update
+    const freelancerServices = service[0].map(service => (
+        <Card style={{ width: '30%', margin: 5}} key={ service.id }>
+            <Card.Header>{ service.name }</Card.Header>
+            <Card.Body>
+                <Card.Text>
+                    <div><small>Type: { service.type }</small></div>
+                    <div><small>Type: { service.description }</small></div>
+                    <div><small>Type: { service.location }</small></div>
+                    <div><small>Rate: ${ service.rate }</small></div>
+                    <Link to={`/services/${service._id}`}>View { service.name }</Link>
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    ))
+    ////
+
     return (
         <>
+            <div>
+                <h2>Services By {freelancer.name}</h2>
+                <h5>Email: {freelancer.email}</h5> 
+                {/* // {freelancer.profile.phone} */}
+            </div>
             <Container className='fluid'>
-                <Card>
-                    <Card.Header>{ service.name }</Card.Header>
-                    <Card.Body>
-                        <Card.Text>
-                            <div><small>Type: { service.type }</small></div>
-                            <div><small>Type: { service.description }</small></div>
-                            <div><small>Type: { service.location }</small></div>
-                            <div><small>Rate: ${ service.rate }</small></div>
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    </Card.Footer>
-                </Card>
+                {freelancerServices}
             </Container>
         </>
     )
