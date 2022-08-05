@@ -10,7 +10,8 @@ import { updateProfile, getOneProfile, removeProfile } from '../../api/profiles'
 // this will allow us to set our params
 import { 
     useParams,
-    useNavigate 
+    useNavigate,
+    Link 
 } from 'react-router-dom';
 // useNav will allow us to navigate to a specific page
 // for error messages
@@ -19,8 +20,6 @@ import {
     useState, 
     useEffect 
 } from 'react'
-// import ShowProfile from './ShowProfile';
-// hiding for later!
 
 
 const ShowProfiles = (props) => {
@@ -70,7 +69,11 @@ const ShowProfiles = (props) => {
     }
     // If service hasn't been loaded yet, show a loading message
     if (!profile) {
-        return <>profile has not been set</>
+        return (
+            <>It looks like you haven't made a profile yet. Please make one <Link to={`/profile/create`}>here</Link>!
+            </>
+            
+            )
     }
     
     return (
