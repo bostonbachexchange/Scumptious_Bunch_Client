@@ -19,13 +19,14 @@ import CreateService from './components/services/CreateService'
 import FreelancerIndex from './components/freelancers/FreelancerIndex'
 import ShowFreelancer from './components/freelancers/ShowFreelancer'
 import CreateProfile from './components/profile/CreateProfile'
-import ShowProfile from './components/profile/ShowProfile'
+// import ShowProfile from './components/profile/ShowProfile'
+import ShowProfiles from './components/profile/ShowProfile'
 
 const App = () => {
 
 	const [user, setUser] = useState(null)
 	const [msgAlerts, setMsgAlerts] = useState([])
-	
+	const [updatedProfile, setUpdatedProfile] = useState({})
 	console.log('user in app', user)
 	console.log('message alerts', msgAlerts)
 	const clearUser = () => {
@@ -108,7 +109,7 @@ const App = () => {
 						path="/profile/:userId"
 						element={ 
 							<RequireAuth user={user} > 
-								<CreateProfile msgAlert={msgAlert} user={user} /> 
+								<CreateProfile msgAlert={msgAlert} user={user} setUpdatedProfile={setUpdatedProfile}/> 
 							</RequireAuth>
 						}
 					/>
@@ -116,7 +117,7 @@ const App = () => {
 						path="/profile"
 						element={ 
 							<RequireAuth user={user}>
-								<ShowProfile msgAlert={msgAlert} user={user} setUser={setUser} /> 
+								<ShowProfiles msgAlert={msgAlert} user={user} setUser={setUser} updatedProfile={updatedProfile}/> 
 							</RequireAuth>
 						}
 					/>

@@ -10,7 +10,7 @@ import {
 
 const ProfileForm = (props) => {
     const { profile, handleChange, handleSubmit, heading } = props
-    console.log('profile', profile)
+    console.log('props.profile', props.profile)
     console.log('here are the props in profile form', props)
     return (
         <Container className="justify-content-center">
@@ -22,7 +22,7 @@ const ProfileForm = (props) => {
                     id="image" 
                     type="text" 
                     placeholder="imageUrl"
-                    value={ profile.image }
+                    value={ props.image }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='aboutMe'>Profile About Me </Form.Label>
@@ -32,7 +32,7 @@ const ProfileForm = (props) => {
                     as="textarea" 
                     rows={3}
                     placeholder="Tell us about your self"
-                    value={ profile.aboutMe }
+                    value={ props.aboutMe }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='phone'>Profile Phone Number</Form.Label>
@@ -41,7 +41,7 @@ const ProfileForm = (props) => {
                     id="phone" 
                     type="text" 
                     placeholder="555-555-5555"
-                    value={ profile.phone }
+                    value={ props.phone }
                     onChange={ handleChange }
                 />
                 <Button 

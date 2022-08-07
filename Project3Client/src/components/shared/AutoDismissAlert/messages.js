@@ -17,8 +17,11 @@ const messages = {
 	getFreelancersFailure: 'Error fetching freelancers.',
 	updateServiceSuccess: 'Service updated successfully!',
 	updateServiceFailure: 'Failed to update service.',
+	updateProfileSuccess: 'Profile updated successfully!', // prof
+	updateProfileFailure: 'Failed to update profile.', // prof
 	createProfileSuccess: 'Profile created successfully!', // prof
 	createProfileFailure: 'Failed to create service.', // prof
+	getProfilesSuccess: 'Profiles loaded successfully!',
 	getProfilesFailure: 'Failed to get profiles. Please try again later.',
 
 	

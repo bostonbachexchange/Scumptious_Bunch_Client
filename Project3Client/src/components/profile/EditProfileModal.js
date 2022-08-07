@@ -14,11 +14,13 @@ const EditProfileModal = (props) => {
         updateProfile, 
         msgAlert, 
         triggerRefresh, 
-        setUser
+        setUser,
+        // profile,
     } = props
-    const [profile, setProfile] = useState(props.profile)
-    console.log('profile in edit modal', profile)
+     const [profile, setProfile] = useState(props.profile)
+    console.log('handleSubmit in edit modal', profile)
     const handleChange = (e) => {
+        console.log('e.target', e.target.value)
         // we got this same function from create!
         setProfile(prevProfile => {
             let updatedValue = e.target.value;
@@ -36,29 +38,32 @@ const EditProfileModal = (props) => {
         })
     }
     const handleSubmit = (e) => {
+        console.log('profile in edit module', profile)
+        console.log('user in edit module', user)
         // this is where we put updatePet! We need (user, updateService)
         // once again, we get a similar function from createService component
         e.preventDefault();
         // we want it to hit the updateService function
         updateProfile(user, profile)
+        
         // if we're successful in the modal, we want the modal to close
-            // console.log('userSet is going to set', profile)
-            .then(() => setUser(setUser)) 
+            // .then(() => setUser(setUser)) 
+            // .then(() => setProfile(updatedProfile))
             .then(() => handleClose())
+            .then(()=> triggerRefresh())
             .then(() =>
                 msgAlert({
-                    heading: 'Update Service Success',
-                    message: messages.updateServiceSuccess,
+                    heading: 'Update Profile Success',
+                    message: messages.updateProfileSuccess,
                     variant: 'success',
                 })
             )
             // if successful, we need to trigger a refresh for the show page so we see the new information immediately
             // this refreshes the state of the service component to the updated information!
-            .then(()=> triggerRefresh())
             // this tells the user about an error
             .catch(msgAlert({
-                heading: 'Update Service Error',
-                message: messages.updateServiceFailure,
+                heading: 'Update Profile Error',
+                message: messages.updateProfileFailure,
                 variant: 'danger',
             }))
     }
@@ -68,6 +73,7 @@ const EditProfileModal = (props) => {
             <Modal.Header closeButton />
             <Modal.Body>
                 <ProfileForm 
+                    // setUser={setUser}
                     profile={profile}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}

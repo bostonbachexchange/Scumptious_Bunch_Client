@@ -42,7 +42,8 @@ const ShowProfiles = (props) => {
     // console.log('user in props', user)
     console.log('setUser in props', setUser)
     useEffect(() => {
-        setProfile(user.profile)
+        console.log('we reset profile to this user', props.user.profile)
+        setProfile(props.user.profile)
     }, [])
     // TODO: add updated to dependency array when we have edit modal
     // here we'll declare a function that runs which will remove the pet
@@ -115,6 +116,7 @@ const ShowProfiles = (props) => {
             <EditProfileModal 
                 user = {user}
                 setUser = {setUser}
+                setProfile={setProfile}
                 profile = {profile}
                 show = {editModalShow}
                 updateProfile = {updateProfile}
