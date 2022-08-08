@@ -83,13 +83,14 @@ const SignUp = (props) => {
 	}
     
     return (
-        <Container className="🎒">
-            <div className='row'>
-                <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                    <h3>Sign Up</h3>
+        <Container>
+            <div className='row' >
+                <div className="🎒" style={{border: "1px solid blue", marginTop: "50px", width: "65%"}}>
+                    <h3 className='♠️'><strong>Sign Up</strong></h3>
+                    <hr></hr>
                     <Form onSubmit={onSignUp}>
                     <Form.Group controlId='name'>
-                            <Form.Label>Username</Form.Label>
+                            <Form.Label className='♠️'>Username</Form.Label>
                             <Form.Control
                                 required
                                 type='text'
@@ -99,16 +100,8 @@ const SignUp = (props) => {
                                 onChange={ handleChange }
                             />
                         </Form.Group>
-                        <Form.Group controlId='isFreelancer'>
-                            <Form.Check
-                                label="Are You a Freelancer?" 
-                                id="isFreelancer" 
-                                name="isFreelancer"
-                                onChange={ handleChange }
-                            />
-                        </Form.Group>
                         <Form.Group controlId='email'>
-                            <Form.Label>Email address</Form.Label>
+                            <Form.Label className='♠️'>Email address</Form.Label>
                             <Form.Control
                                 required
                                 type='email'
@@ -118,8 +111,18 @@ const SignUp = (props) => {
                                 onChange={ handleChange }
                             />
                         </Form.Group>
+                        <hr></hr>
+                        <Form.Group controlId='isFreelancer'>
+                            <Form.Check className='♠️'
+                                label="Are You a Freelancer?" 
+                                id="isFreelancer" 
+                                name="isFreelancer"
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                        <hr></hr>
                         <Form.Group controlId='password'>
-                            <Form.Label>Password</Form.Label>
+                            <Form.Label className='♠️'>Password</Form.Label>
                             <Form.Control
                                 required
                                 name='password'
@@ -130,7 +133,7 @@ const SignUp = (props) => {
                             />
                         </Form.Group>
                         <Form.Group controlId='passwordConfirmation'>
-                            <Form.Label>Password Confirmation</Form.Label>
+                            <Form.Label className='♠️'>Password Confirmation</Form.Label>
                             <Form.Control
                                 required
                                 name='passwordConfirmation'
@@ -140,7 +143,8 @@ const SignUp = (props) => {
                                 onChange={ handleChange }
                             />
                         </Form.Group>
-                        <Button variant='primary' type='submit'>
+                        <hr></hr>
+                        <Button variant='primary' type='submit' className='♠️' style={{margin: "10px auto 10px auto", borderRadius: "10px", width: "auto", textAlign: 'center', justifyContent: 'center'}}>
                             Submit
                         </Button>
                     </Form>
