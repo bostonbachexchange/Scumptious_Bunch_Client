@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 // useParams will allow us to see our parameters
 // useNavigate will allow us to navigate to a specific page
 
-import { Container, Card, Button } from 'react-bootstrap'
+import { Container, Card, Button, Image } from 'react-bootstrap'
 
 import LoadingScreen from '../shared/LoadingScreen'
 // this api call gets us an array with [0] as user and [1] as services
@@ -89,12 +89,15 @@ const ShowFreelancer = (props) => {
                 <h2>Services By {freelancer.name}</h2>
                 <h5>Email: {freelancer.email}</h5> 
                 { (freelancer.profile) ? (
-                                <div><small>
-                                Bio: { freelancer.profile.aboutMe }
-                                </small></div>
-                                ) : (
-                                    <p>user does not have a profile yet.</p>
-                            )}
+                    <>
+                        <Image src={`${freelancer.profile.image}`} />
+                        <div><small>
+                        <strong>Bio</strong>: { freelancer.profile.aboutMe }
+                        </small></div>
+                    </>
+                    ) : (
+                        <p>user does not have a profile yet.</p>
+                )}
             </div> }
             <Container className='fluid-services '>
                 {freelancerServices}
