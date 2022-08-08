@@ -21,6 +21,8 @@ import ShowFreelancer from './components/freelancers/ShowFreelancer'
 import CreateProfile from './components/profile/CreateProfile'
 // import ShowProfile from './components/profile/ShowProfile'
 import ShowProfiles from './components/profile/ShowProfile'
+import StripeContainer from './components/stripe/StripeContainer'
+
 
 const App = () => {
 
