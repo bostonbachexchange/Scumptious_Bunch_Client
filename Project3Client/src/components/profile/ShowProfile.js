@@ -97,14 +97,14 @@ const ShowProfiles = (props) => {
     
     return (
         <>
-            <Container className='fluid' width="600px">
+            <Container className='fluid 🎒' width="600px">
                 <Card>
                     <Card.Header className='👤'>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
                         <Card.Text>
                             <div className='👤'><img src={ profile.image } width="200px" /></div>
-                            <div><small>About Me: { profile.aboutMe }</small></div>
-                            <div><small>Phone: { profile.phone }</small></div>
+                            <div className='👤' width="100%"><small><strong >About Me: </strong>{ profile.aboutMe }</small></div>
+                            <div className='👤'><small><strong>Phone:</strong> { profile.phone }</small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className="text-center">

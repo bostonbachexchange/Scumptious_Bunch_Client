@@ -96,7 +96,7 @@ const ShowFreelancer = (props) => {
                                     <p>user does not have a profile yet.</p>
                             )}
             </div> }
-            <Container className='fluid-services'>
+            <Container className='fluid-services '>
                 {freelancerServices}
             </Container> 
         </>

@@ -1,5 +1,6 @@
 import FreelancerIndex from "./freelancers/FreelancerIndex"
 import ProfileForm from "../components/shared/ProfileForm"
+import { Container } from "react-bootstrap"
 const Home = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
@@ -8,8 +9,11 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h2 className="⚓️"> - Welcome to Freelancr -</h2>
-			<FreelancerIndex msgAlert={ msgAlert } />
+			<Container className="🎒">
+				<h2 className="⚓️"> - Welcome to Freelancr -</h2>
+				<hr></hr>
+				<FreelancerIndex msgAlert={ msgAlert } />
+			</Container>
 		</>
 	)
 }
