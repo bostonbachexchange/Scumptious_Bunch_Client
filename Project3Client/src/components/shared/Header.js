@@ -18,6 +18,24 @@ const freelancerOptions = (
 			</Nav.Item>
 		</>
 )
+const profileShowOptions = (
+		<>
+			<Nav.Item className="m-2">
+				<Link to='profile' style={linkStyle}>
+					Show Profile
+				</Link>
+			</Nav.Item>
+		</>
+)
+const profileAddOptions = (
+		<>
+			<Nav.Item className="m-2">
+				<Link to='profile/create' style={linkStyle}>
+					Add Profile
+				</Link>
+			</Nav.Item>
+		</>
+)
 
 const profileOptions = (
 	<>
@@ -36,17 +54,7 @@ const authenticatedOptions = (
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item className="m-2">
-			<Link to='profile/create' style={linkStyle}>
-			{/* <Link to='profile/:userId' style={linkStyle}> */}
-				Add Profile
-			</Link>
-		</Nav.Item>
-		<Nav.Item className="m-2">
-			<Link to='profile' style={linkStyle}>
-				Show Profile
-			</Link>
-		</Nav.Item>
+
 		<Nav.Item className="m-2">
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
@@ -95,8 +103,10 @@ const Header = ({ user }) => (
 					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
 				)}
 				{alwaysOptions}
-				{user ? authenticatedOptions : unauthenticatedOptions}
 				{user && user.isFreelancer ? freelancerOptions : null}
+				{user && user.profile ? profileShowOptions : null}
+				{user && !user.profile ? profileAddOptions : null}
+				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 		</Navbar.Collapse>
 	</Navbar>

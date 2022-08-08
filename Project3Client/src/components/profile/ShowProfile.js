@@ -4,13 +4,8 @@ import { Container, Card, Button } from 'react-bootstrap';
 import LoadingScreen from '../shared/LoadingScreen';
 // import service API functions
 import { updateProfile, getOneProfile, removeProfile } from '../../api/profiles';
-import { getOneService } from '../../api/services';
 // this will allow us to set our params
-import { 
-    useParams,
-    useNavigate,
-    Link 
-} from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 // useNav will allow us to navigate to a specific page
 // for error messages
 import messages from '../shared/AutoDismissAlert/messages'
@@ -24,7 +19,6 @@ const ShowProfiles = (props) => {
     const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
     const [updated, setUpdated] = useState(false);
-    let profileToShow;
     // destructuring to get the id value from our route params
     const { user, setUser, msgAlert } = props;
     const { id } = useParams()
