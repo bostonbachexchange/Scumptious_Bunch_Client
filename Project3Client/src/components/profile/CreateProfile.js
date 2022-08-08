@@ -56,15 +56,17 @@ const CreateProfile = (props) => {
         e.preventDefault();
         // we want it to hit the createService function
         console.log('handle submit running')
+        console.log("the user in handleSubmit", user)
+        console.log("the profile in handleSubmit", profile)
         createProfile(user, profile)
         // api call
-            .then(() => setProfile(props.profile))
+            .then((res) => console.log('here is the response', res))
+            .then(() => setProfile(profile))
         // if successful, navigate to the show page for the new pet
-            .then((res) => { 
-                // console.log('here is the response', res)
+            .then(() =>  
                 navigate(`/profile`)
                 // navigate(`/profile/${res.data.user.id}`)
-            })
+            )
         // send a success message to the user
             .then(() =>
                 msgAlert({
@@ -82,10 +84,11 @@ const CreateProfile = (props) => {
     return (
         <>
             <ProfileForm 
+                user={ user } 
                 profile={ profile } 
                 handleChange={ handleChange } 
-                heading="Add a New Profile"
                 handleSubmit={ handleSubmit }
+                heading="Add a New Profile"
             />
         </>
     );

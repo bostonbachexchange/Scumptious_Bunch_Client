@@ -3,6 +3,7 @@ import axios from "axios";
 
 // READ => SHOW
 export const getOneProfile = (id) => {
+	console.log("HIT API HERE IS ID", id)
     return axios(`${apiUrl}/profile/${id}`)
 }
 

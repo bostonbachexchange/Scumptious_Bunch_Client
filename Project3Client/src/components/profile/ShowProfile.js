@@ -1,28 +1,17 @@
 import React from 'react';
-import { 
-    Container,
-    Card,
-    Button 
-} from 'react-bootstrap';
+import { useState, useEffect } from 'react'
+import { Container, Card, Button } from 'react-bootstrap';
 import LoadingScreen from '../shared/LoadingScreen';
 // import service API functions
-import { updateProfile, getOneProfile, removeProfile } from '../../api/profiles';
+import { updateProfile, createProfile, getOneProfile, removeProfile } from '../../api/profiles';
 // this will allow us to set our params
-import { 
-    useParams,
-    useNavigate 
-} from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 // useNav will allow us to navigate to a specific page
 // for error messages
 import messages from '../shared/AutoDismissAlert/messages'
-import { 
-    useState, 
-    useEffect 
-} from 'react'
 import EditProfileModal from './EditProfileModal'
 
 // hiding for later!
-
 
 const ShowProfiles = (props) => {
     const [profile, setProfile] = useState(null)
@@ -39,15 +28,34 @@ const ShowProfiles = (props) => {
     // we can call that function to redirect the user wherever we want to
     // console.log('here are props', props)
     // console.log('here is the user id from useParams', user._id)
-    // console.log('user in props', user)
-    console.log('setUser in props', setUser)
+    console.log('user in props', user)
+    // console.log('setUser in props', setUser)
+
     useEffect(() => {
-        console.log('we reset profile to this user', props.user.profile)
-        setProfile(props.user.profile)
-    }, [])
+        console.log('id', props.user._id)
+        getOneProfile(props.user._id)
+            .then(res => setProfile(res.data.profile))
+            .then(res => console.log("res from getOneProfile", res))
+        // console.log('we reset profile to this user', profile)
+            .catch(err => {
+                msgAlert({
+                    heading: 'Error getting profile',
+                    message: messages.getProfilesFailure,
+                    variant: 'danger'
+                })
+                navigate('/')
+            })
+    }, [updated])
+
+    // useEffect(() => {
+    //     console.log('we reset profile to this user', props.user.profile)
+    //     setProfile(props.user.profile)
+    // }, [updated])
+
     // TODO: add updated to dependency array when we have edit modal
     // here we'll declare a function that runs which will remove the pet
     // this function's promise chain should send a message, and then go somewhere
+
     const removeTheProfile = () => {
         // console.log('profile to delete', profile)
          removeProfile(user)
@@ -115,13 +123,14 @@ const ShowProfiles = (props) => {
             </Container>
             <EditProfileModal 
                 user = {user}
-                setUser = {setUser}
-                setProfile={setProfile}
+                // setUser = {setUser}
                 profile = {profile}
                 show = {editModalShow}
+                // setProfile={setProfile}
+                // createProfile = {createProfile}
                 updateProfile = {updateProfile}
                 msgAlert = {msgAlert}
-                triggerRefresh  = {() => setUpdated(prev => !prev)}
+                triggerRefresh = {() => setUpdated(prev => !prev)}
                 handleClose = {() => setEditModalShow((false))}
             />
         </>
