@@ -8,7 +8,7 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h2> - Welcome to Freelancr -</h2>
+			<h2 className="⚓️"> - Welcome to Freelancr -</h2>
 			<FreelancerIndex msgAlert={ msgAlert } />
 		</>
 	)

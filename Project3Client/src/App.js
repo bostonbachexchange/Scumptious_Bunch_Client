@@ -2,7 +2,6 @@
 import React, { useState, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
-
 // import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
@@ -22,7 +21,6 @@ import CreateProfile from './components/profile/CreateProfile'
 // import ShowProfile from './components/profile/ShowProfile'
 import ShowProfiles from './components/profile/ShowProfile'
 import StripeContainer from './components/stripe/StripeContainer'
-
 
 const App = () => {
 

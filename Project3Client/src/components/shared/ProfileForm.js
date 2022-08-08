@@ -14,7 +14,7 @@ const ProfileForm = (props) => {
     console.log('props.profile', props.profile)
     console.log('here are the props in ProfileForm', props)
     return (
-        <Container className="justify-content-center">
+        <Container className="justify-content-center 🎒" >
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
                 {/* <Form.Label htmlFor='image'>Profile Image</Form.Label>
@@ -26,7 +26,7 @@ const ProfileForm = (props) => {
                     value={ props.image }
                     onChange={ handleChange }
                 /> */}
-                <Form.Label htmlFor='aboutMe'>Profile About Me </Form.Label>
+                <Form.Label htmlFor='aboutMe' className='⚓️'>Profile About Me</Form.Label>
                 <Form.Control 
                     name="aboutMe" 
                     id="aboutMe" 

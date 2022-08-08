@@ -99,10 +99,10 @@ const ShowProfiles = (props) => {
         <>
             <Container className='fluid' width="600px">
                 <Card>
-                    <Card.Header>{props.user.name}'s Profile</Card.Header>
+                    <Card.Header className='👤'>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <div><img src={ profile.image } width="200px" /></div>
+                            <div className='👤'><img src={ profile.image } width="200px" /></div>
                             <div><small>About Me: { profile.aboutMe }</small></div>
                             <div><small>Phone: { profile.phone }</small></div>
                         </Card.Text>
