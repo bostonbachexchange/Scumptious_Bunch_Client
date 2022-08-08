@@ -97,7 +97,7 @@ const ShowProfiles = (props) => {
     
     return (
         <>
-            <Container className='fluid'>
+            <Container className='fluid' width="600px">
                 <Card>
                     <Card.Header>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
@@ -107,7 +107,7 @@ const ShowProfiles = (props) => {
                             <div><small>Phone: { profile.phone }</small></div>
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
+                    <Card.Footer className="text-center">
                         {
                             // service.owner && user && service.owner._id === user._id ? 
                                 <>
