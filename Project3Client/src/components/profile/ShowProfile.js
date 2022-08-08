@@ -3,24 +3,14 @@ import { useState, useEffect } from 'react'
 import { Container, Card, Button } from 'react-bootstrap';
 import LoadingScreen from '../shared/LoadingScreen';
 // import service API functions
-import { updateProfile, createProfile, getOneProfile, removeProfile } from '../../api/profiles';
+import { updateProfile, getOneProfile, removeProfile } from '../../api/profiles';
 // this will allow us to set our params
-import { 
-    useParams,
-    useNavigate,
-    Link 
-} from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 // useNav will allow us to navigate to a specific page
 // for error messages
 import messages from '../shared/AutoDismissAlert/messages'
-import { 
-    useState, 
-    useEffect 
-} from 'react'
-import { useParams,useNavigate } from 'react-router-dom';
 // useNav will allow us to navigate to a specific page
 // for error messages
-import messages from '../shared/AutoDismissAlert/messages'
 import EditProfileModal from './EditProfileModal'
 
 // hiding for later!
@@ -31,7 +21,6 @@ const ShowProfiles = (props) => {
     const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
     const [updated, setUpdated] = useState(false);
-    let profileToShow;
     // destructuring to get the id value from our route params
     const { user, setUser, msgAlert } = props;
     const { id } = useParams()
