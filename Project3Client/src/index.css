@@ -83,3 +83,39 @@ h1,
 h3 {
 	text-align: center;
 }
+<<<<<<< HEAD
+=======
+
+.👤 {
+	text-align: center;
+  font-family: 'overpass';
+  font-size: 3em;
+}
+
+.🎒 {
+  font-family: 'overpass';
+	background-color: antiquewhite;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 50px, auto, 50px, auto;
+}
+
+.⚓️ {
+	text-align: center;
+  font-family: 'overpass';
+  font-size: 3em;
+  color: grey;
+  padding: 5px;
+  margin: 10px;
+}
+
+#🥸 {
+  background-image: url('https://media.giphy.com/media/W9faapIypqmUFNO0W0/giphy.gif');
+  background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+}
+>>>>>>> StylingProfiling

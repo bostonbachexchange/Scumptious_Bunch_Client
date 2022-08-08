@@ -7,6 +7,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { Container } from 'react-bootstrap'
 
 const SignUp = (props) => {
     const [name, setName] = useState('')
@@ -82,68 +83,71 @@ const SignUp = (props) => {
 	}
     
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-                <h3>Sign Up</h3>
-                <Form onSubmit={onSignUp}>
-                <Form.Group controlId='name'>
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control
-                            required
-                            type='text'
-                            name='name'
-                            value={ credentials.name }
-                            placeholder='Enter username'
-                            onChange={ handleChange }
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='isFreelancer'>
-                        <Form.Check
-                            label="Are You a Freelancer?" 
-                            id="isFreelancer" 
-                            name="isFreelancer"
-                            onChange={ handleChange }
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='email'>
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            required
-                            type='email'
-                            name='email'
-                            value={ credentials.email }
-                            placeholder='Enter email'
-                            onChange={ handleChange }
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='password'>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            required
-                            name='password'
-                            value={ credentials.password }
-                            type='password'
-                            placeholder='Password'
-                            onChange={ handleChange }
-                        />
-                    </Form.Group>
-                    <Form.Group controlId='passwordConfirmation'>
-                        <Form.Label>Password Confirmation</Form.Label>
-                        <Form.Control
-                            required
-                            name='passwordConfirmation'
-                            value={ credentials.passwordConfirmation}
-                            type='password'
-                            placeholder='Confirm Password'
-                            onChange={ handleChange }
-                        />
-                    </Form.Group>
-                    <Button variant='primary' type='submit'>
-                        Submit
-                    </Button>
-                </Form>
+        <Container className="🎒">
+            <div className='row'>
+                <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+                    <h3>Sign Up</h3>
+                    <Form onSubmit={onSignUp}>
+                    <Form.Group controlId='name'>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control
+                                required
+                                type='text'
+                                name='name'
+                                value={ credentials.name }
+                                placeholder='Enter username'
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='isFreelancer'>
+                            <Form.Check
+                                label="Are You a Freelancer?" 
+                                id="isFreelancer" 
+                                name="isFreelancer"
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='email'>
+                            <Form.Label>Email address</Form.Label>
+                            <Form.Control
+                                required
+                                type='email'
+                                name='email'
+                                value={ credentials.email }
+                                placeholder='Enter email'
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='password'>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                required
+                                name='password'
+                                value={ credentials.password }
+                                type='password'
+                                placeholder='Password'
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='passwordConfirmation'>
+                            <Form.Label>Password Confirmation</Form.Label>
+                            <Form.Control
+                                required
+                                name='passwordConfirmation'
+                                value={ credentials.passwordConfirmation}
+                                type='password'
+                                placeholder='Confirm Password'
+                                onChange={ handleChange }
+                            />
+                        </Form.Group>
+                        <Button variant='primary' type='submit'>
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
             </div>
-        </div>
+        </Container>
+            
     )
 
 }
