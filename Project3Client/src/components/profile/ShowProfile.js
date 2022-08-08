@@ -13,7 +13,6 @@ import messages from '../shared/AutoDismissAlert/messages'
 // for error messages
 import EditProfileModal from './EditProfileModal'
 
-
 const ShowProfiles = (props) => {
     const [profile, setProfile] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false) 

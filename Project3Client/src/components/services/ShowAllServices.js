@@ -29,7 +29,6 @@ const ShowAllServices = (props) => {
     console.log('Props in ShowAllServices', props)
 
     useEffect(() => {
-        console.log(props)
         getAllServices()
             .then(res => setServices(res.data.services))
             .catch(err => {
@@ -41,7 +40,7 @@ const ShowAllServices = (props) => {
                 setError(true)
             })
     }, [])
-
+    console.log('here are the services', services)
     // If services haven't been loaded yet, show a loading message
     if (!services) {
         return <LoadingScreen />
