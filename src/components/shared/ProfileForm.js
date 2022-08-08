@@ -18,15 +18,6 @@ const ProfileForm = (props) => {
             <h3 className='👤'>{heading}</h3>
             <hr></hr>
             <Form onSubmit={handleSubmit}>
-                {/* <Form.Label htmlFor='image'>Profile Image</Form.Label>
-                <Form.Control 
-                    name="image" 
-                    id="image" 
-                    type="text" 
-                    placeholder="imageUrl"
-                    value={ props.image }
-                    onChange={ handleChange }
-                /> */}
                 <Form.Label htmlFor='aboutMe' className="text-center ⚓️" style={{width: "100%"}}>Profile About Me</Form.Label>
                 <Form.Control 
                     name="aboutMe" 
@@ -34,7 +25,7 @@ const ProfileForm = (props) => {
                     as="textarea" 
                     rows={3}
                     placeholder="Tell us about your self"
-                    value={ props.aboutMe }
+                    value={ props.profile.aboutMe }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='phone' className="text-center ⚓️" style={{width: "100%"}}>Profile Phone Number</Form.Label>
@@ -43,7 +34,7 @@ const ProfileForm = (props) => {
                     id="phone" 
                     type="text" 
                     placeholder="555-555-5555"
-                    value={ props.phone }
+                    value={ props.profile.phone }
                     onChange={ handleChange }
                 />
                 <h4 className="text-center">Choose your avatar!</h4>
