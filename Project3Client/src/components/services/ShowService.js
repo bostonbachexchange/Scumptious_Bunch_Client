@@ -95,7 +95,7 @@ const ShowService = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    {showItem ? <StripeContainer /> : <> <h3>${service.rate}</h3>
+                    {showItem ? <StripeContainer msgAlert = {msgAlert} user = {user} service={service}/> : <> <h3>${service.rate}</h3>
                     <button onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
                         {
                             user && service.owner === user._id ? 

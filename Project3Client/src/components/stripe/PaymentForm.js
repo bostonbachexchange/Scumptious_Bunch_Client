@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from 'axios'
+import messages from '../shared/AutoDismissAlert/messages'
+// to redirect on success
+import { useNavigate } from 'react-router-dom'
+import { addServiceToUser} from '../../api/services'
 
 
 const CARD_OPTIONS = {
@@ -25,11 +29,14 @@ const CARD_OPTIONS = {
 
 
 
-export default function PaymentForm() {
+export default function PaymentForm(props) {
     const [success, setSuccess] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-
+    const navigate = useNavigate()
+    const { msgAlert, user, service } = props
+    console.log('here is the user', user)
+    console.log('here is the service', service)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -37,7 +44,6 @@ export default function PaymentForm() {
             type: 'card',
             card: elements.getElement(CardElement)
         }) 
-
 
     if(!error) {
         try {
@@ -49,6 +55,13 @@ export default function PaymentForm() {
             if(response.data.success) {
                 console.log('Successful payment')
                 setSuccess(true)
+                msgAlert({
+                    heading: 'Payment Success',
+                    message: messages.makePaymentSuccess,
+                    variant: 'success',
+                })
+                addServiceToUser(user,service._id)
+                // also hit the patch route
             }
         } catch (error) {
             console.log('Error: ', error)

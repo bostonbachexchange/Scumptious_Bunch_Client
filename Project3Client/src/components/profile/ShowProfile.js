@@ -84,9 +84,11 @@ const ShowProfiles = (props) => {
             
             )
     }
+    // should we make a lookUpServicesById call to populate 
     const enrolledServices = user.enrolledClasses.map(enrolledService => (
-        <li>{enrolledService.name}</li>
+        <li>{enrolledService}</li>
     ))
+    console.log('here is enrolledService',user.enrolledClasses)
     console.log('here is user', user)
     return (
         <>
@@ -100,7 +102,7 @@ const ShowProfiles = (props) => {
                             <div><small>Phone: { profile.phone }</small></div>
                             <div><small>Enrolled Services: 
                                 <ul>
-                                {user.enrolledClasses}
+                                {enrolledServices}
                                 </ul> </small></div>
                         </Card.Text>
                     </Card.Body>

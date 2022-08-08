@@ -23,8 +23,7 @@ const messages = {
 	createProfileFailure: 'Failed to create service.', // prof
 	getProfilesSuccess: 'Profiles loaded successfully!',
 	getProfilesFailure: 'Failed to get profiles. Please try again later.',
-
-	
+	makePaymentSuccess: 'Successfully enrolled!',	
 }
 
 module.exports = messages
