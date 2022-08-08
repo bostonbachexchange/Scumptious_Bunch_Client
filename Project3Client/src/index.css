@@ -17,3 +17,7 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.avatarSelect {
+  margin: 0 auto;
+}

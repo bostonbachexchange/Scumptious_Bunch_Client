@@ -13,14 +13,8 @@ import {
 // useNav will allow us to navigate to a specific page
 // for error messages
 import messages from '../shared/AutoDismissAlert/messages'
-import { 
-    useState, 
-    useEffect 
-} from 'react'
-import { useParams,useNavigate } from 'react-router-dom';
 // useNav will allow us to navigate to a specific page
 // for error messages
-import messages from '../shared/AutoDismissAlert/messages'
 import EditProfileModal from './EditProfileModal'
 
 // hiding for later!

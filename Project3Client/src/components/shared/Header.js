@@ -9,10 +9,6 @@ const linkStyle = {
     textDecoration: 'none'
 }
 
-////////////////////////////////////
-// TODO: SET UP FREELANCER SPECIFIC OPTIONS
-////////////////////////////////////
-
 const freelancerOptions = (
 		<>
 			<Nav.Item className="m-2">
@@ -21,6 +17,16 @@ const freelancerOptions = (
 				</Link>
 			</Nav.Item>
 		</>
+)
+
+const profileOptions = (
+	<>
+		<Nav.Item className="m-2">
+			<Link to='services/create-service' style={linkStyle}>
+				Create Service
+			</Link>
+		</Nav.Item>
+	</>
 )
 
 const authenticatedOptions = (
