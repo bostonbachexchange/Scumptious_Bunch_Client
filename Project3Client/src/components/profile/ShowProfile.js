@@ -4,6 +4,7 @@ import { Container, Card, Button } from 'react-bootstrap';
 import LoadingScreen from '../shared/LoadingScreen';
 // import service API functions
 import { updateProfile, getOneProfile, removeProfile } from '../../api/profiles';
+import { getOneService } from '../../api/services';
 // this will allow us to set our params
 import { 
     useParams,
@@ -17,7 +18,6 @@ import messages from '../shared/AutoDismissAlert/messages'
 // for error messages
 import EditProfileModal from './EditProfileModal'
 
-// hiding for later!
 
 const ShowProfiles = (props) => {
     const [profile, setProfile] = useState(null)
@@ -29,19 +29,13 @@ const ShowProfiles = (props) => {
     const { user, setUser, msgAlert } = props;
     const { id } = useParams()
     const navigate = useNavigate()
-    // useNav returns a function
-    // we can call that function to redirect the user wherever we want to
-    // console.log('here are props', props)
-    // console.log('here is the user id from useParams', user._id)
     console.log('user in props', user)
-    // console.log('setUser in props', setUser)
 
     useEffect(() => {
         console.log('id', props.user._id)
         getOneProfile(props.user._id)
             .then(res => setProfile(res.data.profile))
             .then(res => console.log("res from getOneProfile", res))
-        // console.log('we reset profile to this user', profile)
             .catch(err => {
                 msgAlert({
                     heading: 'Error getting profile',
@@ -53,11 +47,8 @@ const ShowProfiles = (props) => {
     }, [updated])
 
     const removeTheProfile = () => {
-        // console.log('profile to delete', profile)
         removeProfile(user)
             .then(() => setProfile(null))
-            // on success send a success message
-            // setProfile(null)
             .then(() => {
                 msgAlert({
                     heading: 'Success',
@@ -84,31 +75,32 @@ const ShowProfiles = (props) => {
             
             )
     }
-    // should we make a lookUpServicesById call to populate 
+    // should we make a lookUpServicesById call to populate thru getOneService
     const enrolledServices = user.enrolledClasses.map(enrolledService => (
-        <li>{enrolledService}</li>
+        <li><Link to={`/services/${enrolledService}`}>{enrolledService}</Link></li>
     ))
-    console.log('here is enrolledService',user.enrolledClasses)
-    console.log('here is user', user)
     return (
         <>
-            <Container className='fluid' width="600px">
+            <Container className='fluid profileCard' width="600px">
                 <Card>
                     <Card.Header>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <div><img src={ profile.image } width="200px" /></div>
-                            <div><small>About Me: { profile.aboutMe }</small></div>
-                            <div><small>Phone: { profile.phone }</small></div>
-                            <div><small>Enrolled Services: 
-                                <ul>
-                                {enrolledServices}
-                                </ul> </small></div>
+                            <div>
+                                <img src={ profile.image } width="200px" />
+                            </div>
+                            <div>
+                                <div><small>About Me: { profile.aboutMe }</small></div>
+                                <div><small>Phone: { profile.phone }</small></div>
+                                <div><small>Enrolled Services: 
+                                    <ul>
+                                    {enrolledServices}
+                                    </ul> </small></div>
+                            </div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className="text-center">
                         {
-                            // service.owner && user && service.owner._id === user._id ? 
                                 <>
                                     <Button 
                                         onClick={() => setEditModalShow(true)} 
@@ -125,19 +117,14 @@ const ShowProfiles = (props) => {
                                         Delete this Profile
                                     </Button> 
                                 </>
-                                // :
-                                // null
                         }
                     </Card.Footer>
                 </Card>
             </Container>
             <EditProfileModal 
                 user = {user}
-                // setUser = {setUser}
                 profile = {profile}
                 show = {editModalShow}
-                // setProfile={setProfile}
-                // createProfile = {createProfile}
                 updateProfile = {updateProfile}
                 msgAlert = {msgAlert}
                 triggerRefresh = {() => setUpdated(prev => !prev)}
