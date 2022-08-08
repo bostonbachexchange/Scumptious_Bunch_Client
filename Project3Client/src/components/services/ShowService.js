@@ -88,10 +88,10 @@ const ShowService = (props) => {
                     <Card.Header>{ service.name }</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <div><small>Type: { service.type }</small></div>
-                            <div><small>Type: { service.description }</small></div>
-                            <div><small>Type: { service.location }</small></div>
-                            <div><small>Rate: ${ service.rate }</small></div>
+                            <div><small><em>Type</em>: { service.type }</small></div>
+                            <div><small><em>Description</em>: { service.description }</small></div>
+                            <div><small><em>Location</em>: { service.location }</small></div>
+                            <div><small><em>Rate</em>: ${ service.rate }</small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>

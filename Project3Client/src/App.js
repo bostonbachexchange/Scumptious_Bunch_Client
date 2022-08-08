@@ -134,6 +134,10 @@ const App = () => {
 						path='/freelancers/:id' 
 						element={<ShowFreelancer user={ user } msgAlert={ msgAlert }/>} 
 					/>
+					{/* Route to push enrolledService to user */}
+					<Route 
+						path='/user/:serviceId/:userId'
+					/>
 					<Route
 						path='/sign-out'
 						element={

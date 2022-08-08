@@ -11,12 +11,6 @@ export const getOneService = (id) => {
     return axios(`${apiUrl}/services/${id}`)
 }
 
-// // READ => SHOW SERVICES BY ONE USER
-// export const getServicesByUser = (id) => {
-//     return axios(`${apiUrl}/services/user/${id}`)
-// }
-
-
 // CREATE
 
 export const createService = (user, newService) => {
@@ -50,6 +44,17 @@ export const updateService = (user, updatedService) => {
 		},
         // since updatedService and service have the same fields, we just have to do this!
 		data: { service: updatedService } ,
+	})
+}
+
+export const addServiceToUser = (user, serviceId) => {
+	console.log('addService to User in API was hit')
+	return axios({
+		url: `${apiUrl}/user/${serviceId}/${user._id}`,
+		method: 'PATCH',
+		headers: {
+			Authorization: `Token token=${user.token}`,
+		},
 	})
 }
 

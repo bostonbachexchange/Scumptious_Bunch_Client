@@ -71,7 +71,7 @@ export default function PaymentForm() {
         </form>
         :
         <div>
-            <h2>You just bought something. Cool!</h2>
+            <h2 className="paymentSuccess">You just bought something. Cool!</h2>
         </div>
         }
         </>

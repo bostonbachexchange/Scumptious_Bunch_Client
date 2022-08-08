@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Container, Card, Button } from 'react-bootstrap';
 import LoadingScreen from '../shared/LoadingScreen';
 // import service API functions
-import { updateProfile, createProfile, getOneProfile, removeProfile } from '../../api/profiles';
+import { updateProfile, getOneProfile, removeProfile } from '../../api/profiles';
 // this will allow us to set our params
 import { 
     useParams,
@@ -21,7 +21,6 @@ import EditProfileModal from './EditProfileModal'
 
 const ShowProfiles = (props) => {
     const [profile, setProfile] = useState(null)
-    // TODO: future promise for the edit service modal!
     const [editModalShow, setEditModalShow] = useState(false) 
     // to let us know when to rerender!
     const [updated, setUpdated] = useState(false);
@@ -52,15 +51,6 @@ const ShowProfiles = (props) => {
                 navigate('/')
             })
     }, [updated])
-
-    // useEffect(() => {
-    //     console.log('we reset profile to this user', props.user.profile)
-    //     setProfile(props.user.profile)
-    // }, [updated])
-
-    // TODO: add updated to dependency array when we have edit modal
-    // here we'll declare a function that runs which will remove the pet
-    // this function's promise chain should send a message, and then go somewhere
 
     const removeTheProfile = () => {
         // console.log('profile to delete', profile)
@@ -94,7 +84,10 @@ const ShowProfiles = (props) => {
             
             )
     }
-    
+    const enrolledServices = user.enrolledClasses.map(enrolledService => (
+        <li>{enrolledService.name}</li>
+    ))
+    console.log('here is user', user)
     return (
         <>
             <Container className='fluid' width="600px">
@@ -105,6 +98,10 @@ const ShowProfiles = (props) => {
                             <div><img src={ profile.image } width="200px" /></div>
                             <div><small>About Me: { profile.aboutMe }</small></div>
                             <div><small>Phone: { profile.phone }</small></div>
+                            <div><small>Enrolled Services: 
+                                <ul>
+                                {user.enrolledClasses}
+                                </ul> </small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className="text-center">
