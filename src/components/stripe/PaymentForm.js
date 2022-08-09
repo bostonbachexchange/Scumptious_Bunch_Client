@@ -48,8 +48,8 @@ export default function PaymentForm(props) {
     if(!error) {
         try {
             const { id } = paymentMethod
-            const response = await axios.post('http://localhost:8000/payment', {
-                amount: 1000,
+            const response = await axios.post('https://scrumptious-freelancr.herokuapp.com/payment', {
+                amount: service.rate*100,
                 id
             })
             if(response.data.success) {
