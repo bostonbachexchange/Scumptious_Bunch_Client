@@ -84,6 +84,11 @@ const ShowProfiles = (props) => {
                             <div className='centerFontBuff'><small><strong >About Me: </strong>{ profile.aboutMe }</small></div>
                             <hr></hr>
                             <div className='centerFontBuff'><small><strong>Phone:</strong> { profile.phone }</small></div>
+                            <div className='centerFontBuff'><small><strong>Enrolled Services:</strong> 
+                                <ul>
+                                    {enrolledServices}
+                                </ul>
+                            </small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className="text-center">
