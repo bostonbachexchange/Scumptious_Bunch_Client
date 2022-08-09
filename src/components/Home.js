@@ -9,8 +9,8 @@ const Home = (props) => {
 
 	return (
 		<>
-			<Container className="🎒">
-				<h2 className="⚓️"> - Welcome to Freelancr -</h2>
+			<Container className="basicBackground">
+				<h2 className="showProf"> - Welcome to Freelancr -</h2>
 				<hr></hr>
 				<FreelancerIndex msgAlert={ msgAlert } />
 			</Container>

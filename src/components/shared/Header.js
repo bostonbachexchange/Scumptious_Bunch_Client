@@ -90,17 +90,17 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
+	<Navbar bg='dark' variant='dark' expand='md' style={{border: '2px solid black'}}>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                Freelancr
+            <Link to='/' style={linkStyle} className='m-2'>
+                <image scr='/Users/jacobclapper/sei/projects/project-3/client/Scumptious_Bunch_Client/Project3Client/public/favicon.ico'></image>Freelancr
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text mr-2'>Welcome, <span style={{color: 'lightgreen'}}>{user.email}</span></span>
 				)}
 				{alwaysOptions}
 				{user && user.isFreelancer ? freelancerOptions : null}

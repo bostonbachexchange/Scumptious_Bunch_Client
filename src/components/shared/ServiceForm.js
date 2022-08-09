@@ -12,7 +12,7 @@ const ServiceForm = (props) => {
     const { service, handleChange, handleSubmit, heading } = props
 
     return (
-        <Container className="justify-content-center 🎒" style={{border: "1px solid blue", borderRadius: '10px', marginTop: "50px", width: "65%"}}>
+        <Container className="justify-content-center basicBackground" style={{border: "1px solid blue", borderRadius: '10px', marginTop: "50px", width: "65%"}}>
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Label htmlFor='Name'>Service Name</Form.Label>
@@ -63,6 +63,7 @@ const ServiceForm = (props) => {
                 <Button 
                     variant="primary" 
                     type="submit"
+                    className='button'
                 >
                     Submit
                 </Button>

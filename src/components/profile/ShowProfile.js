@@ -74,29 +74,33 @@ const ShowProfiles = (props) => {
     ))
     return (
         <>
-            <Container className='fluid 🎒' width="600px">
-                <Card>
-                    <Card.Header className='👤'>{props.user.name}'s Profile</Card.Header>
+            <Container className='fluid'>
+                <Card className='basicBackground' style={{width: '50%', color: 'black', borderRadius: '15px'}}>
+                    <Card.Header className='centerFontBuff'>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <div className='👤'><img src={ profile.image } width="200px" /></div>
-                            <div className='👤' width="100%"><small><strong >About Me: </strong>{ profile.aboutMe }</small></div>
-                            <div className='👤'><small><strong>Phone:</strong> { profile.phone }</small></div>
+                            <div className='centerFontBuff'><img src={ profile.image } width="200px" /></div>
+                            <hr></hr>
+                            <div className='centerFontBuff'><small><strong >About Me: </strong>{ profile.aboutMe }</small></div>
+                            <hr></hr>
+                            <div className='centerFontBuff'><small><strong>Phone:</strong> { profile.phone }</small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer className="text-center">
                         {
                                 <>
                                     <Button 
+                                        className='button m-2'
                                         onClick={() => setEditModalShow(true)} 
-                                        className="m-2" 
+                                        // className="m-2" 
                                         variant="warning"
                                     >
                                         Edit Profile
                                     </Button> 
                                     <Button 
+                                        className="button" 
                                         onClick={() => removeTheProfile()} 
-                                        className="m-2" 
+                                        // className="m-2" 
                                         variant="danger"
                                     >
                                         Delete this Profile

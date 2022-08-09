@@ -83,11 +83,12 @@ const ShowService = (props) => {
     }
     return (
         <>
-            <Container className='fluid'>
+            <Container className='fluid mt-4'>
                 <Card>
-                    <Card.Header>{ service.name }</Card.Header>
+                    <Card.Header><strong>{ service.name }</strong></Card.Header>
                     <Card.Body>
                         <Card.Text>
+<<<<<<< HEAD:src/components/services/ShowService.js
                             <div><small><em>Type</em>: { service.type }</small></div>
                             <div><small><em>Description</em>: { service.description }</small></div>
                             <div><small><em>Location</em>: { service.location }</small></div>
@@ -97,6 +98,17 @@ const ShowService = (props) => {
                     <Card.Footer>
                     {showItem ? <StripeContainer msgAlert = {msgAlert} user = {user} service={service}/> : <> <h3>${service.rate}</h3>
                     <button onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
+=======
+                            <div><strong>Type: </strong><small>{ service.type }</small></div>
+                            <div><strong>Description: </strong><small>{ service.description }</small></div>
+                            <div><strong>Location: </strong><small>{ service.location }</small></div>
+                            <div><strong>Rate: </strong><small>${ service.rate }</small></div>
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                    {showItem ? <StripeContainer /> : <> <h3>${service.rate}</h3>
+                    <button className="button" onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
+>>>>>>> StylingProfiling:Project3Client/src/components/services/ShowService.js
                         {
                             user && service.owner === user._id ? 
                                 <>

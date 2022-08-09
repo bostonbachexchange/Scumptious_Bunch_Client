@@ -60,7 +60,7 @@ const FreelancerIndex = (props) => {
         <Card style={{ width: '30%', margin: 5}} key={ freelancer.id }>
             <Card.Header>{ freelancer.fullTitle }</Card.Header>
             <Card.Body>
-                <Card.Text>
+                <Card.Text className='centerFontBuff'>
                     <Link to={`/freelancers/${freelancer._id}`}>View { freelancer.name }</Link>
                 </Card.Text>
             </Card.Body>

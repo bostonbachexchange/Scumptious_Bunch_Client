@@ -85,10 +85,13 @@ const ShowFreelancer = (props) => {
     return (
         <>
         {freelancer && 
-            <div>
-                <h2>Services By {freelancer.name}</h2>
-                <h5>Email: {freelancer.email}</h5> 
+            <div className="basicBackground" style={{width: '50%', borderRadius: '15px'}}>
+                <h2><strong>Services By </strong>{freelancer.name}</h2>
+                <hr></hr>
+                <h5><strong>Email: </strong>{freelancer.email}</h5> 
+                <hr></hr>
                 { (freelancer.profile) ? (
+<<<<<<< HEAD:src/components/freelancers/ShowFreelancer.js
                     <>
                         <Image src={`${freelancer.profile.image}`} />
                         <div><small>
@@ -98,6 +101,14 @@ const ShowFreelancer = (props) => {
                     ) : (
                         <p>user does not have a profile yet.</p>
                 )}
+=======
+                                <div><strong> Bio: </strong><small>
+                               { freelancer.profile.aboutMe }
+                                </small></div>
+                                ) : (
+                                    <p>user does not have a profile yet...</p>
+                            )}
+>>>>>>> StylingProfiling:Project3Client/src/components/freelancers/ShowFreelancer.js
             </div> }
             <Container className='fluid-services '>
                 {freelancerServices}
