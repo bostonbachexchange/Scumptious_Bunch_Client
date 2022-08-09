@@ -39,8 +39,6 @@ const ShowService = (props) => {
     // console.log('here are props', props)
     // console.log('here is the id from useParams', id)
     const { user, msgAlert } = props;
-    // console.log('the service in props', service)
-    // console.log('user in props', user)
     useEffect(() => {
         getOneService(id)
             .then(res => setService(res.data.service))
@@ -54,6 +52,7 @@ const ShowService = (props) => {
                 navigate('/');
             })
     }, [updated])
+    let serviceRate;
     // here we'll declare a function that runs which will remove the pet
     // this function's promise chain should send a message, and then go somewhere
     const removeTheService = () => {
@@ -80,6 +79,9 @@ const ShowService = (props) => {
     // If service hasn't been loaded yet, show a loading message
     if (!service) {
         return <LoadingScreen />
+    } else {
+        serviceRate = service.rate
+        console.log(serviceRate)
     }
     return (
         <>
@@ -95,7 +97,7 @@ const ShowService = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    {showItem ? <StripeContainer /> : <> <h3>${service.rate}</h3>
+                    {showItem ? <StripeContainer serviceRate={serviceRate} service={service} user={user}/> : <> <h3>${service.rate}</h3>
                     <button className="button" onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
                         {
                             user && service.owner === user._id ? 

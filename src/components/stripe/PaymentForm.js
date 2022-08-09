@@ -34,10 +34,10 @@ export default function PaymentForm(props) {
     const stripe = useStripe()
     const elements = useElements()
     const navigate = useNavigate()
-    const { msgAlert, user, service } = props
+    const { msgAlert, user, serviceRate, service } = props
     console.log('here is the user', user)
-    console.log('here is the service', service)
-
+    // console.log(service.rate)
+    const paymentAmount = 1000
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -49,7 +49,7 @@ export default function PaymentForm(props) {
         try {
             const { id } = paymentMethod
             const response = await axios.post('https://scrumptious-freelancr.herokuapp.com/payment', {
-                amount: service.rate*100,
+                amount: serviceRate,
                 id
             })
             if(response.data.success) {
