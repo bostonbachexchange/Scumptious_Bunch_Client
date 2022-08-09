@@ -64,7 +64,11 @@ export default function PaymentForm(props) {
                 // also hit the patch route
             }
         } catch (error) {
-            console.log('Error: ', error)
+            msgAlert({
+                heading: 'Payment Error',
+                message: messages.makePaymentFailure,
+                variant: 'danger',
+            })
         }
     
     } else {
@@ -84,7 +88,7 @@ export default function PaymentForm(props) {
         </form>
         :
         <div>
-            <h2 className="paymentSuccess">You just bought something. Cool!</h2>
+            <h2 className="paymentSuccess">Successfully paid and enrolled!</h2>
         </div>
         }
         </>

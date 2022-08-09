@@ -24,6 +24,7 @@ const messages = {
 	getProfilesSuccess: 'Profiles loaded successfully!',
 	getProfilesFailure: 'Failed to get profiles. Please try again later.',
 	makePaymentSuccess: 'Successfully enrolled!',	
+	makePaymentFailure: 'Failed to run payment. Please try again later.'
 }
 
 module.exports = messages
