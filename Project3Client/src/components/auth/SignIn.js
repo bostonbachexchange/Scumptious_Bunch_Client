@@ -59,7 +59,7 @@ const SignIn = (props) => {
     return (
         <Container>
             <div className='row'>
-                <div className='🎒' style={{border: "1px solid blue", marginTop: "50px", width: "65%", textAlign: 'center'}}>
+                <div className='basicBackground' style={{border: "1px solid blue", marginTop: "50px", width: "65%", textAlign: 'center'}}>
                     <h3 className='♠️'>Sign In</h3>
                     <hr></hr>
                     <Form onSubmit={onSignIn}>

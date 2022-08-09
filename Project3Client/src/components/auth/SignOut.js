@@ -31,7 +31,7 @@ const SignOut = (props) => {
 	return (
 		<>
             <div className='row'>
-                <div className='🎒' style={{border: "1px solid black", borderRadius: '10px', marginTop: "50px", width: "40%", textAlign: 'center'}}>
+                <div className='basicBackground' style={{border: "1px solid black", borderRadius: '10px', marginTop: "50px", width: "40%", textAlign: 'center'}}>
                     <h2 className='♠️'>Are you sure you want to sign out?</h2>
                     <small className='♠️'>We hate to see you go...</small><br/>
                     <ButtonGroup>

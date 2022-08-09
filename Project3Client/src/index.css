@@ -84,13 +84,13 @@ h3 {
 	text-align: center;
 }
 
-.👤 {
+.centerFontBuff {
 	text-align: center;
   font-family: 'overpass';
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
-.🎒 {
+.basicBackground {
   font-family: 'overpass';
 	background-color: antiquewhite;
   border: 2px solid black;
@@ -99,7 +99,7 @@ h3 {
   margin: 50px auto 50px auto;
 }
 
-.⚓️ {
+.showProf {
 	text-align: center;
   font-family: 'overpass';
   font-size: 3em;
@@ -107,13 +107,23 @@ h3 {
   padding: 5px;
   margin: 10px;
 }
-.♠️ {
+/* .♠️ {
   font-family: 'overpass';
   font-size: 2em;
   padding: 5px;
+} */
+
+.button {
+  margin: 10px auto 10px auto; 
+  border-radius: 10px; 
+  width: auto; 
+  text-align: 'center'; 
+  justify-content: 'center';
+  font-family: 'overpass';
+  font-size: 1.5em;
 }
 
-#🥸 {
+#bodyMain {
   background-image: url('https://media.giphy.com/media/W9faapIypqmUFNO0W0/giphy.gif');
   background-size:100%;
     background-repeat: repeat-y;

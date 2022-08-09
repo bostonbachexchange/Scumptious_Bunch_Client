@@ -85,7 +85,7 @@ const SignUp = (props) => {
     return (
         <Container>
             <div className='row' >
-                <div className="🎒" style={{border: "1px solid blue", marginTop: "50px", width: "65%"}}>
+                <div className="basicBackground" style={{border: "1px solid blue", marginTop: "50px", width: "65%"}}>
                     <h3 className='♠️'><strong>Sign Up</strong></h3>
                     <hr></hr>
                     <Form onSubmit={onSignUp}>

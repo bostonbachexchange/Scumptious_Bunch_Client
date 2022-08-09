@@ -14,8 +14,8 @@ const ProfileForm = (props) => {
     console.log('props.profile', props.profile)
     console.log('here are the props in ProfileForm', props)
     return (
-        <Container className="justify-content-center 🎒" >
-            <h3 className='👤'>{heading}</h3>
+        <Container className="justify-content-center basicBackground" style={{textAlign: "center"}}>
+            <h3 className='centerFontBuff'>{heading}</h3>
             <hr></hr>
             <Form onSubmit={handleSubmit}>
                 {/* <Form.Label htmlFor='image'>Profile Image</Form.Label>
@@ -27,7 +27,7 @@ const ProfileForm = (props) => {
                     value={ props.image }
                     onChange={ handleChange }
                 /> */}
-                <Form.Label htmlFor='aboutMe' className="text-center ⚓️" style={{width: "100%"}}>Profile About Me</Form.Label>
+                <Form.Label htmlFor='aboutMe' className="text-center showProf" style={{width: "100%"}}>Profile About Me</Form.Label>
                 <Form.Control 
                     name="aboutMe" 
                     id="aboutMe" 
@@ -37,7 +37,7 @@ const ProfileForm = (props) => {
                     value={ props.aboutMe }
                     onChange={ handleChange }
                 />
-                <Form.Label htmlFor='phone' className="text-center ⚓️" style={{width: "100%"}}>Profile Phone Number</Form.Label>
+                <Form.Label htmlFor='phone' className="text-center showProf" style={{width: "100%"}}>Profile Phone Number</Form.Label>
                 <Form.Control 
                     name="phone" 
                     id="phone" 
@@ -131,7 +131,7 @@ const ProfileForm = (props) => {
                                 <Image src="https://i.imgur.com/HyANWIc.png" width="200px" alt="tiger" />
                     </Form.Label>
                 </div>
-                <Button 
+                <Button className='button'
                     variant="primary" 
                     type="submit"
                 >
