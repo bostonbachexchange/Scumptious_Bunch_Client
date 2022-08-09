@@ -89,3 +89,6 @@ Edit Service
 
 # Attribution
 Avatar images found here: <a href="https://www.freepik.com/vectors/pet-animals">Pet animals vector created by freepik - www.freepik.com</a>
+
+# KNOWN BUGS
+* on deployment, enrolment to services isn't working as intended. Working on this!
