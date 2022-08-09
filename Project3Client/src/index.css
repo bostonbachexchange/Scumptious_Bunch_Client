@@ -92,7 +92,8 @@ h3 {
 
 .basicBackground {
   font-family: 'overpass';
-	background-color: antiquewhite;
+	background-color: rgb(37, 37, 37);
+  color: white;
   border: 2px solid black;
   border-radius: 5px;
   padding: 8px;
@@ -102,8 +103,7 @@ h3 {
 .showProf {
 	text-align: center;
   font-family: 'overpass';
-  font-size: 3em;
-  color: grey;
+  font-size: 2em;
   padding: 5px;
   margin: 10px;
 }
@@ -112,6 +112,10 @@ h3 {
   font-size: 2em;
   padding: 5px;
 } */
+
+nav a:hover { 
+  color: rgb(249, 162, 82) !important; 
+} 
 
 .button {
   margin: 10px auto 10px auto; 

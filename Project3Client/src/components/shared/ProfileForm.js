@@ -5,6 +5,8 @@ import {
     Container,
     Image
 } from 'react-bootstrap'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 // profile model fields:
 // image, aboutMe, phone
@@ -15,6 +17,7 @@ const ProfileForm = (props) => {
     console.log('here are the props in ProfileForm', props)
     return (
         <Container className="justify-content-center basicBackground" style={{textAlign: "center"}}>
+            <hr></hr>
             <h3 className='centerFontBuff'>{heading}</h3>
             <hr></hr>
             <Form onSubmit={handleSubmit}>
@@ -27,27 +30,39 @@ const ProfileForm = (props) => {
                     value={ props.image }
                     onChange={ handleChange }
                 /> */}
-                <Form.Label htmlFor='aboutMe' className="text-center showProf" style={{width: "100%"}}>Profile About Me</Form.Label>
-                <Form.Control 
-                    name="aboutMe" 
-                    id="aboutMe" 
-                    as="textarea" 
-                    rows={3}
-                    placeholder="Tell us about your self"
-                    value={ props.aboutMe }
-                    onChange={ handleChange }
-                />
-                <Form.Label htmlFor='phone' className="text-center showProf" style={{width: "100%"}}>Profile Phone Number</Form.Label>
-                <Form.Control 
-                    name="phone" 
-                    id="phone" 
-                    type="text" 
-                    placeholder="555-555-5555"
-                    value={ props.phone }
-                    onChange={ handleChange }
-                />
-                <h4 className="text-center">Choose your avatar!</h4>
-                <div className="avatarSelect text-center" style={{width: "100%"}}>
+                <Row>
+                    <Form.Label column="lg" lg={2} htmlFor='aboutMe' className="m-1.5"><strong>About Me:</strong></Form.Label>
+                    <Col>
+                        <Form.Control 
+                            size='lg'
+                            name="aboutMe" 
+                            id="aboutMe" 
+                            as="textarea" 
+                            rows={2}
+                            placeholder="Tell us about your self"
+                            value={ props.aboutMe }
+                            onChange={ handleChange }
+                        />
+                    </Col>
+                </Row>
+                <br></br>
+                <Row>
+                    <Form.Label column="lg" lg={2} htmlFor='phone' className="m-1.5"><strong>Phone: </strong></Form.Label>
+                    <Col>
+                        <Form.Control 
+                            size="lg"
+                            name="phone" 
+                            id="phone" 
+                            type="text" 
+                            placeholder="555-555-5555"
+                            value={ props.phone }
+                            onChange={ handleChange }
+                        />
+                    </Col>
+                </Row>
+                <hr></hr>
+                <h4 className="text-center m-3">Choose your avatar!</h4>
+                <div className="avatarSelect text-center m-2" style={{width: "100%"}}>
                     <Form.Label htmlFor='image'>
                         <Form.Check 
                             type="radio"

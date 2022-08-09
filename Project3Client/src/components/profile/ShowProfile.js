@@ -98,12 +98,14 @@ const ShowProfiles = (props) => {
     return (
         <>
             <Container className='fluid'>
-                <Card className='basicBackground' style={{width: '50%', borderRadius: '15px'}}>
+                <Card className='basicBackground' style={{width: '50%', color: 'black', borderRadius: '15px'}}>
                     <Card.Header className='centerFontBuff'>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
                         <Card.Text>
                             <div className='centerFontBuff'><img src={ profile.image } width="200px" /></div>
+                            <hr></hr>
                             <div className='centerFontBuff'><small><strong >About Me: </strong>{ profile.aboutMe }</small></div>
+                            <hr></hr>
                             <div className='centerFontBuff'><small><strong>Phone:</strong> { profile.phone }</small></div>
                         </Card.Text>
                     </Card.Body>
@@ -112,7 +114,7 @@ const ShowProfiles = (props) => {
                             // service.owner && user && service.owner._id === user._id ? 
                                 <>
                                     <Button 
-                                        className='button'
+                                        className='button m-2'
                                         onClick={() => setEditModalShow(true)} 
                                         // className="m-2" 
                                         variant="warning"

@@ -83,20 +83,20 @@ const ShowService = (props) => {
     }
     return (
         <>
-            <Container className='fluid'>
+            <Container className='fluid mt-4'>
                 <Card>
-                    <Card.Header>{ service.name }</Card.Header>
+                    <Card.Header><strong>{ service.name }</strong></Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <div><small>Type: { service.type }</small></div>
-                            <div><small>Type: { service.description }</small></div>
-                            <div><small>Type: { service.location }</small></div>
-                            <div><small>Rate: ${ service.rate }</small></div>
+                            <div><strong>Type: </strong><small>{ service.type }</small></div>
+                            <div><strong>Description: </strong><small>{ service.description }</small></div>
+                            <div><strong>Location: </strong><small>{ service.location }</small></div>
+                            <div><strong>Rate: </strong><small>${ service.rate }</small></div>
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
                     {showItem ? <StripeContainer /> : <> <h3>${service.rate}</h3>
-                    <button onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
+                    <button className="button" onClick={() => setShowItem(true)}>Purchase {service.name}</button></>}
                         {
                             user && service.owner === user._id ? 
                                 <>
