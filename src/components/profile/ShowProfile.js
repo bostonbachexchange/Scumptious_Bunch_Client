@@ -75,7 +75,7 @@ const ShowProfiles = (props) => {
     return (
         <>
             <Container className='fluid'>
-                <Card className='basicBackground' style={{width: '50%', color: 'black', borderRadius: '15px'}}>
+                <Card className='basicBackground' style={{width: '50%', color: 'white', borderRadius: '15px'}}>
                     <Card.Header className='centerFontBuff'>{props.user.name}'s Profile</Card.Header>
                     <Card.Body>
                         <Card.Text>

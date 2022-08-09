@@ -54,7 +54,7 @@ const ShowAllServices = (props) => {
     // console.log('here are our services!', services)
 
     const serviceCards = services.map(service => (
-        <Card className="basicBackground" style={{ width: '30%', margin: 5, color: 'black'}} key={ service._id }>
+        <Card className="basicBackground" style={{ width: '30%', margin: 5, color: 'white'}} key={ service._id }>
             <Card.Header>{ service.name}</Card.Header>
             <Card.Body>
                 <Card.Text>

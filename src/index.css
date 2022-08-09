@@ -91,13 +91,13 @@ h3 {
 }
 
 .basicBackground {
-  font-family: 'overpass';
+	font-family: 'overpass';
 	background-color: rgb(37, 37, 37);
-  color: white;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 8px;
-  margin: 50px auto 50px auto;
+	color: white;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 50px auto 50px auto;
 }
 
 .showProf {
