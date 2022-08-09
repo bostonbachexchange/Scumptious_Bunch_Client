@@ -91,7 +91,6 @@ const ShowFreelancer = (props) => {
                 <h5><strong>Email: </strong>{freelancer.email}</h5> 
                 <hr></hr>
                 { (freelancer.profile) ? (
-<<<<<<< HEAD:src/components/freelancers/ShowFreelancer.js
                     <>
                         <Image src={`${freelancer.profile.image}`} />
                         <div><small>
@@ -101,14 +100,6 @@ const ShowFreelancer = (props) => {
                     ) : (
                         <p>user does not have a profile yet.</p>
                 )}
-=======
-                                <div><strong> Bio: </strong><small>
-                               { freelancer.profile.aboutMe }
-                                </small></div>
-                                ) : (
-                                    <p>user does not have a profile yet...</p>
-                            )}
->>>>>>> StylingProfiling:Project3Client/src/components/freelancers/ShowFreelancer.js
             </div> }
             <Container className='fluid-services '>
                 {freelancerServices}
