@@ -37,7 +37,7 @@ export default function PaymentForm(props) {
     const { msgAlert, user, serviceRate, service } = props
     console.log('here is the user', user)
     // console.log(service.rate)
-    const paymentAmount = 1000
+    // const paymentAmount = 1000
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { error, paymentMethod } = await stripe.createPaymentMethod({
