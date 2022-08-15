@@ -8,9 +8,11 @@ This platform will allow Freelancers to create profiles and list their available
  
 ## Team Roles
 Alys - Team Manager
-Hayden - Hype Manager
+Hayden - Front End SEM
 Jacob - Back End SEM
-Sophia - Front End SEM
+
+## Link to API Repo
+<a href="https://github.com/alysvolatile/Scrumptious-Bunch-API">Link to API repo is here!</a>
 
 ## User Stories
 ### As a user (both freelancer and user)…
