@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
     // YOU MUST CHANGE PRODUCTION URL WHEN DEPLOYING
-	production: 'https://scrumptious-freelancr.herokuapp.com',
+	production: 'https://freelanr-api.fly.dev',
 	development: 'http://localhost:8000',
 }
 
