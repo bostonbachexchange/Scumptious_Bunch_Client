@@ -1,5 +1,10 @@
 # FREELANCR README
- 
+
+## API Github
+https://github.com/bostonbachexchange/Scrumptious-Bunch-API
+
+## Deployed Link
+https://main--flourishing-caramel-dc0ef2.netlify.app
 ## Pitch
  FREELANCR is the hottest new Freelancing Platform that will blow Fiverr out of the water. 
 
